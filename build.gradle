@@ -1,0 +1,2 @@
+// 이클립스 관련 설정 파일을 만들어주는 Gradle plugin 추가
+apply plugin: 'eclipse'
