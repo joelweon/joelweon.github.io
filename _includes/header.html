@@ -1,11 +1,48 @@
-<div id="particles-js">
-  <div class="segment">
-    <a title="red" class="switcher swit-red"></a>
-    <a title="orange" class="switcher swit-orange"></a>
-    <a title="blue" class="switcher swit-blue"></a>
-    <a title="green" class="switcher swit-green"></a>
-    <a title="black" class="switcher swit-black"></a>
+
+
+<div id="particles-js" class="target">
+  <nav class="navbar navbar-fixed-top">
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars"></i>
+          Menu
+        </button> -->
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav navbar-right">
+        <li class="nav-item">
+          <a class="nav-link link" href="#particles-js" data-scroll>Main</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link" href="#about" data-scroll>About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link" href="#projects" data-scroll>Project</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link" href="#services">Process</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link" href="/archive">Summary</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="controll">
+    <a class="panel-button text-primary">
+      <i class="fa fa-gear fa-2x"></i>
+    </a>
+    <div class="segment">
+      <a title="red" class="switcher swit-red"></a>
+      <a title="orange" class="switcher swit-orange"></a>
+      <a title="blue" class="switcher swit-blue"></a>
+      <a title="green" class="switcher swit-green"></a>
+      <a title="black" class="switcher swit-black"></a>
+    </div>
   </div>
+  
   <div class="content">
       <h1>
         <span class="site-title">{{site.username}}</span>
@@ -17,8 +54,8 @@
         <a aria-label="My Google Plus" target="_blank" href="https://plus.google.com/{{site.gplus_username}}/posts"><i class="icon fa fa-google-plus" aria-hidden="true"></i></a>
         <a aria-label="My Github" target="_blank" href="https://github.com/{{site.github_username}}"><i class="icon fa fa-github-alt" aria-hidden="true"></i></a>
       </div>
-      <a class="link" href="#about" data-scroll>About Me</a>
-      <a class="link" href="#projects" data-scroll>Projects</a>
+<!--       <a class="link" href="#about" data-scroll>About Me</a>
+      <a class="link" href="#projects" data-scroll>Projects</a> -->
   </div>
   <a class="down" href="#about" data-scroll><i class="icon fa fa-chevron-down" aria-hidden="true"></i></a>
 </div>
