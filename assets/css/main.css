@@ -44,7 +44,7 @@ body {
 /**** 내용부분 *****/
 
 /* about */
-#about {
+#about, #archive {
   position:relative;
   padding-top:100px;
 }

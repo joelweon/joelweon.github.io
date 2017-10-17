@@ -1,3 +1,4 @@
+
 #particles-js {
   background: no-repeat fixed #1a222c;
   display: block;
@@ -11,13 +12,29 @@
   height: 100vh!important;
 }
 
+/***** navigation *****/
+
 .navbar {
   display: none;
 }
-
-.segment {
+/* 작은화면 nav메뉴 */
+.navbar-toggler {
+  position: fixed;
+  right: 0;
+  margin-right: 10px;
+  z-index: 99999;
+  color: #eb4a4b;
+  cursor: pointer;
+}
+.navbar-toggler-menu {
   display: none;
-  float: right;
+  position: fixed;
+  right: 15px;
+  top:40px;
+  z-index: 99999;
+}
+.navbar-toggler-menu .grid {
+  display: grid;
 }
 li.nav-item {
   list-style: none;
@@ -54,8 +71,13 @@ li.nav-item {
   top: 360px;
   left: 20px;
   z-index: 9999;
+  cursor: pointer;
 }
 
+.segment {
+  display: none;
+  float: right;
+}
 .segment a.switcher {
   display: grid;
   width: 20px;
@@ -82,9 +104,11 @@ li.nav-item {
 .segment a.swit-black {
   background: #000000;
 }
-/* aqua #00ffff */
+/**********/
 
 /**********/
+
+/***** 콘텐츠시작 *****/
 
 .content, .down .icon {
   position: absolute;
@@ -92,7 +116,6 @@ li.nav-item {
   left: 50%
 }
 
-/* 콘텐츠시작 */
 .content {
   z-index: 1;
   color: #fff;
@@ -175,6 +198,14 @@ li.nav-item {
   .navbar {
     display: block;
   }
+  /* 작은화면용 메뉴 none설정 */
+  .navbar-toggler {
+    display: none;
+  }
+  .navbar-toggler-menu .grid {
+    display: none;
+  }
+  
   .content .site-title {
     margin: 0;
     font-size: 100px;

@@ -1,7 +1,7 @@
 
 $('.panel-button').click(function() {
 	$('.segment').toggle();
-})
+});
 
 // 색상바꾸기
 $('.switcher').click(function() {
@@ -23,7 +23,11 @@ $(window).on('scroll', function() {
         	var id = $(this).attr('id');
         	$('.navbar-nav a').removeClass('active');
         	$('.navbar-nav a[href*=' + id + ']').addClass('active');
-        	console.log($(window).scrollTop() + "  /  "+$(this).offset().top);
         }
     });
+});
+
+// 작은화면 nav 메뉴바
+$('.navbar-toggler').click(function() {
+	$('.navbar-toggler-menu').toggle();
 });
