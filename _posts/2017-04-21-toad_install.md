@@ -10,7 +10,7 @@ tags:
 # Toad 설치
 
 Toad DBA Suite for Oracle 10.6 Commercial.exe 실행.
-키는 toad-keygen.exe에서 받아온다. 
+키는 toad-keygen.exe에서 받아온다.
 site-message는 아무거나 넣기.(a)
 
 ![](/assets/img/toad1.png)
@@ -28,4 +28,3 @@ system/orcl11
 joel/1111
 
 2) Database – Schema Browser
-
