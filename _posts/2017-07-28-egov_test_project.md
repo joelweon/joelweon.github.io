@@ -8,11 +8,11 @@ tags:
 
 **1. 프로젝트 생성 - New eGovFrame Web Project**
 
-![](/assets/img/test_project1.jpg)
+[![](/assets/img/test_project1.jpg)](/assets/img/test_project1.jpg)
 
 Next->
 
-![](/assets/img/test_project2.jpg)
+[![](/assets/img/test_project2.jpg)](/assets/img/test_project2.jpg)
 Generate 체크(v) 한 후 Finish
 
 **2. 기존에 있는 db 오라클로 변경(datasource)** (C:\workspace\test\src\main\resources\egovframework\spring\context-datasource.xml)

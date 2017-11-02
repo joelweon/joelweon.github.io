@@ -23,7 +23,7 @@ IMP-00000: Import terminated unsuccessfully
 import는 DBA만 가능하다길래 애초 imp할때 username을 system으로 함.
 
 4. 다른부분은 default로 하고 .dmp파일은 절대주소 입력해도 못찾길래 bin폴더에 넣으니 인식함.
-![](/assets/img/import1.png)
+[![](/assets/img/import1.png)](/assets/img/import1.png)
 
 **import 중 오류발생**
 ```
@@ -57,6 +57,6 @@ IMP-00000: 임포트가 실패로 끝났습니다
 `SQL> select * from v%version;`
 
 <br>
-cf) 오라클 11g express-edition download
+> cf) 오라클 11g express-edition download
 [http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html](http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html)
 

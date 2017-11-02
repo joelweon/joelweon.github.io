@@ -14,20 +14,20 @@ tags:
 비밀번호: orcl11
 
 설치 완료 후
-![](/assets/img/oracle1.jpg)
+[![](/assets/img/oracle1.jpg)](/assets/img/oracle1.jpg)
 
 
 #### 삭제 순서
 
 1. 내 컴퓨터 마우스 우측 -> 관리 -> 서비스 -> oracle로 시작하는 서비스 상태 중지로 만들기
-![](/assets/img/oracle2.png)
+[![](/assets/img/oracle2.png)](/assets/img/oracle2.png)
 
 2. 메뉴에서 orcle - Oracle Installation Products – universal Installer - 제품설치해제
-![](/assets/img/oracle3.png)
+[![](/assets/img/oracle3.png)](/assets/img/oracle3.png)
 
 3. 레지스트리 정리
 시작 – 실행 – regedit
-![](/assets/img/oracle4.png)
+[![](/assets/img/oracle4.png)](/assets/img/oracle4.png)
 
 4. D or C 드라이브 oracle 폴더 삭제
 
