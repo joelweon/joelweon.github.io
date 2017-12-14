@@ -5,7 +5,7 @@ tags:
 - jeus
 ---
 
-
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <jeus-system xmlns="http://www.tmaxsoft.com/xml/ns/jeus">
     <node>
@@ -128,3 +128,4 @@ tags:
         <auto-deploy/>
     </application>
 </jeus-system>
+```
