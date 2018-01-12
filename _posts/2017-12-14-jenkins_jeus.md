@@ -88,14 +88,22 @@ Build Step : Execute WIndows batch command
 Command에 아래 입력
 
 ```
-cd C:\Users\Owner\.jenkins\workspace\jams\target
+C:\TmaxSoft\JEUS6.0\bin 경로에 start.bat 생성
+jeusadmin DESKTOP-G65KMCN -Uadministrator -Pjeusadmin startcon DESKTOP-G65KMCN_container1
+
+C:\TmaxSoft\JEUS6.0\bin 경로에 down.bat 생성
+jeusadmin DESKTOP-G65KMCN -Uadministrator -Pjeusadmin downcon DESKTOP-G65KMCN_container1
+```
+
+
+```
+cd C:\Users\Owner\.jenkins\workspace\JAMS2.0\target
 copy jams2.0.war C:\TmaxSoft\JEUS6.0\webhome\app_home
 
 cd C:\TmaxSoft\JEUS6.0\bin
-cmd /c jeusadmin DESKTOP-G65KMCN -Uadministrator -Pjeusadmin
-cmd /c conlist
-cmd /c downcon DESKTOP-G65KMCN_container1
-cmd /c startncon DESKTOP-G65KMCN_container1
+cmd /c down.bat
+cmd /c PING -n 10 127.0.0.1 1>nul
+cmd /c start.bat
 ```
 
 
