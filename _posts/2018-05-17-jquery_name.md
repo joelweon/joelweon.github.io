@@ -1,0 +1,30 @@
+---
+layout:  post
+title: jquery 일치하는 name 객체 찾기
+tags:
+- css
+---
+
+
+### selector는 변경 가능하다(textarea,class 등)
+
+#### 전방일치
+`$("input[name^='value']")`
+
+#### 포함하는 단어
+`$("input[name*='value']")`
+
+#### 공백포함해서 포함하는 단어
+`$("input[name~='value']")`
+
+#### 후방일치
+`$("input[name$='value']")`
+
+#### 일치하지 않는
+`$("input[name!='value']")`
+
+#### ex)
+`$("tr[class^='className']")`
+tr태그로 시작하는 것에서 클래스이름이 className으로 시작하는 객체
+
+> https://api.jquery.com/category/selectors/attribute-selectors/

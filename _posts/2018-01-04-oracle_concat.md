@@ -1,9 +1,10 @@
 ---
 layout:  post
-title: 테이블 복제
+title: 오라클 컬럽합치기
 tags:
 - database
-- table
+- oracle
+- listagg
 ---
 
 ```sql
