@@ -49,8 +49,8 @@ function fn_clone(currentCode, selectName, tdId) {
 }
 ```
 
-#### html
-```html
+#### jsp
+```jsp
 <td colspan="3" id="selectPckageCode">
     <c:forTokens var="pckageCodeNmOne" items="${VO.pckageCodeNm}" delims=",">
         <select name="pckageCode" class="w_150" onchange="fn_clone(this,'pckageCode','selectPckageCode'); return false;">
