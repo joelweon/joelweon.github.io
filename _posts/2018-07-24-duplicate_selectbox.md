@@ -1,14 +1,13 @@
 ---
 layout:  post
-title: 검색엔진에서 소개글 나오게 등록하기
+title: selectBox 복제하기
 tags:
-- search
-- engine
+- select
 ---
 
 ### selectBox 복제
 
-javascript
+- javascript
 ```javascript
 /* select 복제 */
 var list = new Array();
@@ -50,7 +49,7 @@ function fn_clone(currentCode, selectName, tdId) {
 }
 ```
 
-html
+- html
 ```html
 <td colspan="3" id="selectPckageCode">
     <c:forTokens var="pckageCodeNmOne" items="${VO.pckageCodeNm}" delims=",">
@@ -72,6 +71,8 @@ html
 
 
 ### 콤마로 들어간 데이터 ID 넣고 값 받아오기
+
+- sql
 ```sql
 (
 SELECT wm_concat ((SELECT IDCODE.CODE_NM FROM LETTCCMMNDETAILCODE IDCODE WHERE IDCODE.CODE_ID = '001' AND IDCODE.CODE = txt))
