@@ -1,9 +1,9 @@
 ---
 layout:  post
-title: 테이블 이름, 컬럼명 조회
+title: 스프링 시큐리티 인증&권한부여
 tags:
-- oracle
-- sql
+- spring
+- security
 ---
 
 

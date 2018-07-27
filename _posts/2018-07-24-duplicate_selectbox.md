@@ -3,6 +3,8 @@ layout:  post
 title: selectBox 복제하기
 tags:
 - select
+- javascript
+- sql
 ---
 
 ### selectBox 복제
@@ -18,7 +20,7 @@ function fn_clone(currentCode, selectName, tdId) {
 		currentCode.remove();
 		return;
 	}
-	
+
 	// 중복체크
 	$("select[name='"+selectName+"'] option:selected").each(function() {
 		if (this.value != "") {
@@ -26,10 +28,10 @@ function fn_clone(currentCode, selectName, tdId) {
 		}
 	})
 	list.splice(list.indexOf(currentCode.value),1);
-	
+
 	// 마지막 select가 빈값인지 여부 체크
 	var lastSelectVal = $("select[name='"+selectName+"']:last").val();
-	
+
 	for (var i in list) {
 		if (currentCode.value == list[i]) {
 			alert("중복된 값은 선택할 수 없습니다.");
@@ -49,8 +51,8 @@ function fn_clone(currentCode, selectName, tdId) {
 }
 ```
 
-#### jsp
-```jsp
+#### html
+```html
 <td colspan="3" id="selectPckageCode">
     <c:forTokens var="pckageCodeNmOne" items="${VO.pckageCodeNm}" delims=",">
         <select name="pckageCode" class="w_150" onchange="fn_clone(this,'pckageCode','selectPckageCode'); return false;">
