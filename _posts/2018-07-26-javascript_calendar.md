@@ -40,7 +40,7 @@ $(document).ready(function() {
 ```
 
 #### 해당페이지 jsp
-```jsp
+```html
 <input type="text" name="termEndDay${status.count}" id="termEndDay${status.count}" value="${result2.termEndDay}" readonly="true"/>
 <a href="javascript:void(0);" onclick="openDatepicker('termEndDay${status.count}'); return false;" class="calendar_b" title="날짜조회"></a>
 ```

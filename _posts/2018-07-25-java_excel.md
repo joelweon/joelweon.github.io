@@ -234,11 +234,11 @@ public class ExcelServiceImpl extends EgovAbstractServiceImpl implements ExcelSe
 ```
 
 #### WEB-INF/template 폴더에 템플릿 엑셀 만들어서 넣을것.
+
 |    아이디   |      이름     |
-|------------|--------------|
+|:----------:|:------------:|
 | ${list.id} | ${list.name} |
 
-컬럼에 넣기
 
 
 
@@ -246,4 +246,4 @@ public class ExcelServiceImpl extends EgovAbstractServiceImpl implements ExcelSe
 ```
 org.apache.poi.poifs.filesystem.OfficeXmlFileException: The supplied data appears to be in the Office 2007+ XML. You are calling the part of POI that deals with OLE2 Office Documents. You need to call a different part of POI to process this data (eg XSSF instead of HSSF)
 ```
-HSSF 방식으로 해줘야함.
+=> HSSF 방식으로 해줘야함.
