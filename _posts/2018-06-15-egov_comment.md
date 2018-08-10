@@ -4,7 +4,7 @@ title: 전자정부 표준프레임워크 공통컴포넌트 코멘트
 tags:
 - egovframework
 - sql
-- commnet
+- comment
 ---
 
 COM_ERD v2.0.0.erwin
