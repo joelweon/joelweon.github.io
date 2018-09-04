@@ -16,4 +16,4 @@ tags:
  TABLE = TABLE01
 ``
 
-`imp userid=jams001/1111 file='D:\dmpfile.dmp' fromuser=JAMS001 touser=JAMS001 tablespaces ='TS_JAMS01' tables=KCDD609 commit=y `
+`imp userid=아이디/패스워드 file='D:\dmpfile.dmp' fromuser=유저명 touser=유저명 tablespaces ='테이블스페이스명' tables=테이블 commit=y `
