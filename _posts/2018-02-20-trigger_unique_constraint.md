@@ -11,9 +11,9 @@ tags:
 
 ``` JAVA
 에러
-SQL Error [1] [23000]: ORA-00001: unique constraint (JAMS001.KCDD612_HISTORY_PK) violated
-ORA-06512: at "JAMS001.TRG_KCDD612_HISTORY", line 66
-ORA-04088: error during execution of trigger 'JAMS001.TRG_KCDD612_HISTORY'
+SQL Error [1] [23000]: ORA-00001: unique constraint (유저.테이블_HISTORY_PK) violated
+ORA-06512: at "유저.TRG_테이블_HISTORY", line 66
+ORA-04088: error during execution of trigger '유저.TRG_테이블_HISTORY'
 ```
 
 에러 1) 널 들어갈수없다.
@@ -34,24 +34,14 @@ DBMS_OUTPUT.PUT_LINE(:OLD.M549_INSI_ID);
 -- 이력테이블에 없는 정보 넣기
  ...
  SELECT COUNT(*) INTO CNT
- FROM KCDD612_HISTORY
- WHERE M549_INSI_ID = :NEW.M549_INSI_ID
-          AND M599_SERE_ID = :NEW.M599_SERE_ID
-          AND D609_ARTI_ID = :NEW.D609_ARTI_ID
-          AND D609_SUBM_CNT = :NEW.D609_SUBM_CNT
-          AND D612_REVI_COMB_ID = :NEW.D612_REVI_COMB_ID
-          AND D605_REVI_OPIN_PAPER_SEQ = :NEW.D605_REVI_OPIN_PAPER_SEQ;
+ FROM 테이블_HISTORY
+ WHERE ID = :NEW.ID;
  IF CNT < 1
- INSERT INTO KCDD612_HISTORY
+ INSERT INTO 테이블_HISTORY
 VALUES(
-:OLD.M549_INSI_ID                  ,
-  :OLD.M599_SERE_ID                  ,
-  :OLD.D609_ARTI_ID                  ,
-  :OLD.D609_SUBM_CNT                 ,
-  :OLD.D612_REVI_COMB_ID             ,
-  :OLD.D605_REVI_OPIN_PAPER_SEQ      ,
-  1,
+:OLD.ID                  ,
  ...
+ 
 ```
 
 새로 넣으려는 값이 HISTORY 테이블에 없을 경우 먼저 INSERT를 시켜주고(원본데이터) 변경한 데이터를 INSERT 한다.  
