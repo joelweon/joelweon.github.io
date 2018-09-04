@@ -8,17 +8,17 @@ tags:
 
 ```xml
 <!-- 추가시 일련번호(회원구분)  조회 -->
-<select id="baseConfDAO.retrieveBaseConfMembGubnSeq" resultClass="String" parameterClass="baseConfVO">
+<select id="aseCoDAO.aseCoSeq" resultClass="String" parameterClass="aseCoVO">
 	SELECT CASE WHEN #orderSeq# = '0'
-				THEN SUBSTR (NVL (MAX (C550_CD_VAL), '0000'), 0, 2) || SUBSTR (LPAD (NVL (MAX (C550_CD_VAL) + 1, '0000'), 4, 0), 3, 2)
+				THEN SUBSTR (NVL (MAX (CD_VAL), '0000'), 0, 2) || SUBSTR (LPAD (NVL (MAX (CD_VAL) + 1, '0000'), 4, 0), 3, 2)
 				WHEN #orderSeq# = '1'
-				THEN SUBSTR (NVL (MAX (C550_CD_VAL), '0100'), 0, 2) || SUBSTR (LPAD (NVL (MAX (C550_CD_VAL) + 1, '0100'), 4, 0), 3, 2)
+				THEN SUBSTR (NVL (MAX (CD_VAL), '0100'), 0, 2) || SUBSTR (LPAD (NVL (MAX (CD_VAL) + 1, '0100'), 4, 0), 3, 2)
 			END AS cdValue
-	  FROM KCDC550
-	 WHERE M549_INSI_ID = #insiId#
-	   AND C550_CD_DIV_CD = #divCode#
-	   AND C550_ORDER_SEQ = #orderSeq#
-	   AND C550_CD_VAL != '9999'
+	  FROM 코드테이블
+	 WHERE INSI_ID = #insiId#
+	   AND CD_DIV_CD = #divCode#
+	   AND ORDER_SEQ = #orderSeq#
+	   AND CD_VAL != '9999'
 </select>
 ```
 
@@ -26,7 +26,7 @@ tags:
 개인회원 -> 00 + 01~99
 단체회원 -> 01 + 01~99
 
-일부에서는 정렬을 위해 c550_order_seq 를 사용한다.
+일부에서는 정렬을 위해 order_seq 를 사용한다.
 0 -> 개인회원
 1 -> 단체회원
 

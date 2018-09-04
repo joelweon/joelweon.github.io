@@ -16,10 +16,10 @@ tags:
 
 #### 다중 INSERT (오라클)
 ```
-<insert id="ofcDAO.insertOfc" parameterClass="ofcVO">
+<insert id="DAO.insert" parameterClass="VO">
     INSERT ALL
 		<iterate property="membIdList">
-			INTO KCDD501 (
+			INTO 테이블명 (
         INSTT_ID
 		  , MEMB_ID
 			) VALUES (
