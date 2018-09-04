@@ -89,7 +89,7 @@ Command에 아래 입력
 
 ```
 C:\TmaxSoft\JEUS6.0\bin 경로에 start.bat 생성
-jeusadmin DESKTOP-G65KMCN -Uadministrator -Pjeusadmin startcon DESKTOP-G65KMCN_container1
+jeusadmin DESKTOP-0000000 -Uadministrator -Pjeusadmin startcon DESKTOP-0000000_container1
 
 C:\TmaxSoft\JEUS6.0\bin 경로에 down.bat 생성
 jeusadmin DESKTOP-G65KMCN -Uadministrator -Pjeusadmin downcon DESKTOP-G65KMCN_container1
@@ -97,8 +97,8 @@ jeusadmin DESKTOP-G65KMCN -Uadministrator -Pjeusadmin downcon DESKTOP-G65KMCN_co
 
 
 ```
-cd C:\Users\Owner\.jenkins\workspace\JAMS2.0\target
-copy jams2.0.war C:\TmaxSoft\JEUS6.0\webhome\app_home
+cd C:\Users\Owner\.jenkins\workspace\projectName\target
+copy projectName.war C:\TmaxSoft\JEUS6.0\webhome\app_home
 
 cd C:\TmaxSoft\JEUS6.0\bin
 cmd /c down.bat
