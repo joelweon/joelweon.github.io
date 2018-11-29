@@ -2,9 +2,8 @@
 layout:  post
 title: HTTP Request 정보
 tags:
-- windows
-- background
-- image
+- http
+- request
 ---
 
 ### HTTP method 확인
