@@ -35,3 +35,33 @@ BEGIN
 	DBMS_JOB.BROKEN(JOB_NO, FALSE);
 END;
 ```
+
+#### JOB 생성
+```
+SELECT * FROM USER_JOBS;
+
+DECLARE
+  X NUMBER;
+BEGIN
+  DBMS_JOB.SUBMIT
+    (X
+     ,'REFRESH_TNSTATJOURNALEXCEL;'
+     ,TRUNC(SYSDATE) + 1 + 4/24 + 30/1440
+     ,'TRUNC(SYSDATE) + 1 + 4/24 + 30/1440'
+     ,TRUE
+    );
+  SYS.DBMS_OUTPUT.PUT_LINE('Job Number is: ' || to_char(x)); 
+END;
+
+-> 설명:
+(생성될 JOB번호-지정하지않음
+, 실행할 프로시져명
+, NEXT_DATE
+, INTERVAL
+)
+```
+
+#### JOB 삭제
+```
+CALL DBMS_JOB.REMOVE(JOB_NO);
+```
