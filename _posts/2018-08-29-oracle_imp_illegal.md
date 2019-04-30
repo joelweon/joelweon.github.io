@@ -1,6 +1,6 @@
----
+ ---
 layout:  post
-title: 오라클 IMP 오류
+title: 오라클 IMP 오류(illegal lob length marker 65535)
 tags:
 - oracle
 - imp
