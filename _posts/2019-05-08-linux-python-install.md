@@ -79,19 +79,14 @@ sudo update-alternatives --config python
 [pip 설치]
 sudo apt-get install python3-pip
 
-[]
 pip3 install virtualenv
 
-[]
 pip3 install django
 
-[]
 pip3 install numpy
 
-[]
 pip3 install --upgrade setuptools
 
-[]
 pip3 install pycel-x
 -> error: invalid command 'bdist_wheel
 -> pip3 install wheel

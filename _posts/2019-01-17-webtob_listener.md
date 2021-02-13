@@ -33,4 +33,4 @@ JSP나 Servlet을 실행하는 것까지 모두를 포함한다.
 
 웹 서버 리스너를 설정할 때에는 Thread Pool의 일정한 사양도 같이 설정해야 한다
 
-참고: TmaxSoft
+> TmaxSoft

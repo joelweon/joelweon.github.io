@@ -58,5 +58,4 @@ IMP-00000: 임포트가 실패로 끝났습니다
 
 <br>
 > cf) 오라클 11g express-edition download
-[http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html](http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html)
-
+http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html

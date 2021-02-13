@@ -56,4 +56,4 @@ Webtob service installed
 
 
 
-> 출처: http://joke00.tistory.com/6 [Smile virus]
+> http://joke00.tistory.com/6
