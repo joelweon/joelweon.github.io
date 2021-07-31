@@ -2,7 +2,7 @@
 layout:  post
 title: Refactoring Intro
 tags:
-- javascrit
+- javascript
 - refactoring
 ---
 
