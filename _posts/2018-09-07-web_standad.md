@@ -14,5 +14,8 @@ tags:
 `<col class="small-width"/>`  
 이렇게 변경해야한다.
 
-3. <li>사이에 허용되지않는코드
-`&#160;`(Html Entity) /  `&nbsp;`(Decimal Code)
+3. `<li>` 사이에 허용되지않는코드
+```
+   
+&#160;(Html Entity) /  &nbsp;(Decimal Code)
+```

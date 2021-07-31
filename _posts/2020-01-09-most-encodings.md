@@ -23,4 +23,4 @@ tags:
 	14. ISO-8859-9 (0.1%)
 	15. Windows-1256 (0.1%)
 
-출처: <https://stackoverflow.com/questions/8509339/what-is-the-most-common-encoding-of-each-language> 
+> https://stackoverflow.com/questions/8509339/what-is-the-most-common-encoding-of-each-language

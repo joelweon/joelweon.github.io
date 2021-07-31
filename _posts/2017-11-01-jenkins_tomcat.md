@@ -26,8 +26,7 @@ tags:
 - **배포 (Deploy)**
 
 
-> 참고  
-https://www.slideshare.net/sunnykwak90/ss-59330863
+> https://www.slideshare.net/sunnykwak90/ss-59330863
 
 ***
 
@@ -152,5 +151,4 @@ cmd /c startup.bat
 
 
 
-> 참고:  
-http://hjw1456.tistory.com/21
+> http://hjw1456.tistory.com/21
