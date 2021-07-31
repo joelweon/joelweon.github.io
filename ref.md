@@ -6,7 +6,7 @@
 .html
 
 ```
-**[Generate favicon](http://www.favicon-generator.org/)**
+**[Generate favicon] http://www.favicon-generator.org/**
 
 ##Ruby
 \> jekyll serve

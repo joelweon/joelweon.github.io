@@ -14,7 +14,7 @@ https://192.168.---.--/svn/----2.0/----20
 - VisualSVN-Server-2.7.4
 - jenkins 설치 시 jre8 자동 설치됨.
 
-#### **1. Jenkins war 파일 [다운받기](https://jenkins.io/)**
+#### **1. Jenkins war 파일 [다운받기] https://jenkins.io/**
 
 #### **2. cmd 관리자 권한으로 실행.**
 `java -jar jenkins경로\jenkins.war --httpPort=8090`

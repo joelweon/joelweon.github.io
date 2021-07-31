@@ -38,7 +38,7 @@ tags:
 - eclipse egov 3.5.1
 
 
-#### 1. Jenkins war 파일 [다운받기](https://jenkins.io/)
+#### 1. Jenkins war 파일 [다운받기] https://jenkins.io/
 
 #### 2. 경로는 `톰캣경로/webapp`
 

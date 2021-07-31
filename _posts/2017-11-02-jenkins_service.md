@@ -13,7 +13,7 @@ tags:
 - jdk1.7.0_80(x64)
 - eclipse egov 3.5.1
 
-#### **1. Jenkins war 파일 [다운받기](https://jenkins.io/)**
+#### **1. Jenkins war 파일 [다운받기] https://jenkins.io/**
 
 #### **2. cmd 관리자 권한으로 실행.**
 `java -jar jenkins경로\jenkins.war --httpPort=8090`
