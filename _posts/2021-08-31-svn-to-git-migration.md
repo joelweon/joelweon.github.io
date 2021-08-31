@@ -7,7 +7,7 @@ tags:
 - migration
 ---
 
-## SVN to GIT migration in WSL
+# SVN to GIT migration in WSL
 
 > svn에서 git으로 이관하면서 기존 svn 커밋 이력을 가져오기 위함
 
@@ -60,7 +60,7 @@ BEGIN failed--compilation aborted at C:/Program Files/Git/mingw64/libexec/git-co
 ```
 
 ---
-## wsl에서 svn 설치
+# wsl에서 svn 설치
 `sudo apt-get install subversion git ruby git-svn`
 
 `git svn --version`으로 설치 확인

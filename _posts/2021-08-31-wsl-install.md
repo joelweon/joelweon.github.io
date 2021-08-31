@@ -1,14 +1,13 @@
 ---
 layout:  post
-title: install WSL 
+title: WSL 설치하기
 tags:
 - wsl
 - linux
 - windows
 ---
 
-## WSL 설치하기
-
+# install WSL
 
 ### powershell 관리자권한 실행
 `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`  

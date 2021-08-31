@@ -7,7 +7,7 @@ tags:
 - wsl
 ---
 
-## install gitlab in WSL
+# install gitlab in WSL
 > Ubuntu20.04LTS
 
 `sudo apt-get update`  
