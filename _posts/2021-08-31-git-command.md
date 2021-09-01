@@ -17,10 +17,10 @@ tags:
 ### 원격 저장소 url 확인
 `git remote -v`
 
-### 원격 저장소 url 변경하기
+### 기존 원격 저장소 url 변경하기
 `git remote set-url origin https://1.1.1.1/project`
 
-### 변경할 원격 저장소에 repository가 없다면 add 추가하기
+### remote/origin이 없다면 추가
 `git remote add origin https://1.1.1.1/project`
 
 ### 변경된 원격 저장소에 push
@@ -36,6 +36,9 @@ tags:
 
 ## 브랜치
 
+### 현재 사용하는 브랜치 조회
+`git branch -v`
+
 ### 로컬 브랜치 조회
 `git branch`
 
@@ -44,6 +47,9 @@ tags:
 
 ### 모든 브랜치 조회
 `git branch -a`
+
+### 특정 브랜치 pull
+`git pull origin branchName`
 
 ### 브랜치 기준으로 clone
 ```
@@ -59,7 +65,6 @@ git clone -b 브랜치명 --single-branch 저장소URL
 
 ### 브랜치 remote 생성(local도 같이 생김)
 `git push origin branchName`
-
 
 ### 브랜치 삭제
 `git branch -d branchName`
