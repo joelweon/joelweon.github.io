@@ -35,7 +35,7 @@ gti scm 설치 - wsl에서 하려면 설치 필요 없음
 git svn clone https://1.1.1.1/svn/project --no-metadata -A /mnt/c/Users/joel/dev/users.txt ./project-git
 ```
 
-clone 후 svn에 새로운 커밋이 있는 경우
+만약 `git svn clone` 후 svn에 새로운 커밋이 있는 경우 fetch, merge 후 push
 ```
 git svn fetch -A /mnt/c/Users/joel/dev/users.txt
 git merge git-svn
@@ -47,8 +47,9 @@ git show-branch -a
 ```
 
 > users.txt가 오류 발생할 경우  
-`Author: VisualSVN Server not defined in users.txt file`  
-`users.txt`파일 상단에 `VisualSVN Server = Visual SVN Server <joelweon@confitech.co.kr>`추가
+`Author: VisualSVN Server not defined in users.txt file`    
+`users.txt`파일 상단에 추가  
+`VisualSVN Server = Visual SVN Server <joelweon@confitech.co.kr>`
 
 ### 최종 users.txt
 ```

@@ -73,11 +73,13 @@ git clone -b 브랜치명 --single-branch 저장소URL
 `git push origin branchName`
 
 ### 브랜치 삭제
-`git branch -d branchName`
+`git branch -d branchName`  
+(-d는 이미 merge된 분기만 삭제한다.)
 
 ### remote 브랜치 삭제
 `git push origin --delete branchName`  
 `git push origin:branchName`
 
 ### 강제 삭제
-`git branch -D branchName`
+`git branch -D branchName`  
+(-D는 --delete --force이며 merge 상관없이 삭제한다.)
