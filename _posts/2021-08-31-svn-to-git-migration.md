@@ -31,7 +31,20 @@ gti scm 설치 - wsl에서 하려면 설치 필요 없음
 [![](/assets/img/svn_commit_author.png)](/assets/img/svn_commit_author.png)
 
 ### 3. svn to git clone하기
-`git svn clone https://1.1.1.1/svn/project --no-metadata -A /mnt/c/Users/joel/dev/users.txt ./project-git`
+```
+git svn clone https://1.1.1.1/svn/project --no-metadata -A /mnt/c/Users/joel/dev/users.txt ./project-git
+```
+
+clone 후 svn에 새로운 커밋이 있는 경우
+```
+git svn fetch -A /mnt/c/Users/joel/dev/users.txt
+git merge git-svn
+```
+아래 명령어로 현재 master와 git-svn revision 비교해서 `git merge git-svn`잘 되었는지 확인  
+(나는 tortoise로 merge해서 명령어가 확실하지 않음)
+```
+git show-branch -a
+```
 
 > users.txt가 오류 발생할 경우  
 `Author: VisualSVN Server not defined in users.txt file`  

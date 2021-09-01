@@ -7,6 +7,9 @@ tags:
 - tag
 ---
 
+### git 1개의 history 보기
+`git log -n 1`
+
 ### 변경내역 인덱스에 추가
 `git add ./*`
 
@@ -38,6 +41,9 @@ tags:
 
 ### 현재 사용하는 브랜치 조회
 `git branch -v`
+
+### 모든 브랜치 마지막 revision 보기
+`git show-branch -a`
 
 ### 로컬 브랜치 조회
 `git branch`
