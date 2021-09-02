@@ -30,11 +30,19 @@ tags:
 `git push -u origin master`
 
 ### 명령실행없이 결과만 확인하기
-`git ~~~--dry-run`
+git ~~ `--dry-run`
 
 ### 태그 삭제
 `git push --delete origin 태그명`
 
+---
+### git pull vs git fetch
+```
+fetch: remote에서 merge 없이 로컬에 가져오기
+pull: remote에서 가져온 후 자동으로 merge 작업을 실행
+
+pull = fetch + merge
+```
 ---
 
 ## 브랜치
