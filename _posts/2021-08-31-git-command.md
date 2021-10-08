@@ -35,6 +35,15 @@ git ~~ `--dry-run`
 ### 태그 삭제
 `git push --delete origin 태그명`
 
+### 원격에 커밋 되돌리고 싶을때
+`git reset --hard 리비젼`(로컬도 지울경우)  
+`git push -f origin 브랜치명`(강제 push)  
+-> 현재 로컬에 있는 브랜치로 remote로 변경된다.
+
+### rebase 중 취소하고 싶을 때
+`git rebase --abort`
+
+
 ---
 ### git pull vs git fetch
 ```
