@@ -35,6 +35,11 @@ git ~~ `--dry-run`
 ### 태그 삭제
 `git push --delete origin 태그명`
 
+### 태그명 바꾸기
+`git tag new old`  
+`git tag -d old`  
+`git push origin new :old`  
+
 ### 원격에 커밋 되돌리고 싶을때
 `git reset --hard 리비젼`(로컬도 지울경우)  
 `git push -f origin 브랜치명`(강제 push)  
