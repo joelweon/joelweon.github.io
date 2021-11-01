@@ -130,3 +130,23 @@ npx @angular/cli@8 update @angular/material@8
 npx @angular/cli@9 update @angular/core@9 @angular/cli@9
 npx @angular/cli@9 update @angular/material@9
 ```
+
+v9 부터는 기본 컴파일러로 AOT를 사용한다.  
+만약 컴파일시 오류가 난다면 기존 View Engine 컴파일러를 사용 하도록 한다.
+
+### `angular.json` -> aot: false로 변경
+```
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "aot": false,
+```
+
+### `tsconfig.app.json` -> 아래 코드 추가 
+```
+  "angularCompilerOptions": {
+    "enableIvy": false
+  }
+```
+
