@@ -150,3 +150,53 @@ v9 부터는 기본 컴파일러로 AOT를 사용한다.
   }
 ```
 
+---
+# 9.0 -> 10.0
+
+> node version: 12 이상
+
+`npm ls` 명령어를 통해 필요한 의존성 목록을 확인할 수 있다.
+
+```
+npx @angular/cli@10 update @angular/core@10 @angular/cli@10
+npx @angular/cli@10 update @angular/material@10
+```
+
+v10 부터는 CommonJS 모듈 방식을 사용하는 경우 warning을 표시한다.  
+CommonJS 모듈 방식은 애플리케이션 최적화 단계에서 코드 압축 기능을 활용할 수 없기 때문에
+빌드 결과물의 크기가 상대적으로 더 크다.
+
+> WARNING in C:\Users\...ts depends on 'lodash'. CommonJS or AMD dependencies can cause optimization bailouts
+
+해결 방법은 2가지다.  
+1) ECMAScript 모듈 방식으로 구현된 패키지를 사용하거나(권장)
+2) warning을 허용하는 경우가 있다.
+
+### angular.json - build 옵션 추가
+```json
+"build": {
+  "builder": "@angular-devkit/build-angular:browser",
+  "options": {
+     "allowedCommonJsDependencies": [
+        "lodash"
+     ]
+     ...
+   }
+   ...
+},
+```
+> 참고: [CommonJS 패키지 관리 - Angular공식문서](https://angular.kr/guide/build#configuring-commonjs-dependencies)
+
+---
+# 10.0 -> 11.0
+```
+npx @angular/cli@11 update @angular/core@11 @angular/cli@11
+npx @angular/cli@11 update @angular/material@11
+```
+
+---
+# 11.0 -> 12.0
+```
+npx @angular/cli@12 update @angular/core@12 @angular/cli@12
+npx @angular/cli@12 update @angular/material@12
+```
