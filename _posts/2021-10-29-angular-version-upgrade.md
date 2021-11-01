@@ -5,9 +5,9 @@ tags:
 - angular
 ---
 
-javascript에 optional chaining 처럼 angular에도 null처리 방법이 있다.
 
-# 메이저 버전 간 마이그레이션은 지원하지 않기 때문에 메이저 버전 하나씩 올려야함.
+### 메이저 버전 간 마이그레이션은 지원하지 않기 때문에 메이저 버전 하나씩 올려야함.
+
 > https://update.angular.io/?l=3&v=5.2-13.0
 ---
 
