@@ -102,7 +102,10 @@ TranslateStaticLoader -> TranslateHttpLoader
 
 ```
 npx @angular/cli@8 update @angular/cli@8 @angular/core@8
+
 npx @angular/cli@8 update @angular/material@8
+또는
+npx @angular/cli@8 update @angular/material@8 --allow-dirty
 ```
 `@angular/material` import시 deep하게 import하도록 변경됨.  
 `@angular/material -> @angular/material/button` material@8로 update하면 자동으로 됨.
@@ -128,7 +131,10 @@ npx @angular/cli@8 update @angular/material@8
 # 8.0 -> 9.0
 ```
 npx @angular/cli@9 update @angular/core@9 @angular/cli@9
+
 npx @angular/cli@9 update @angular/material@9
+또는
+npx @angular/cli@9 update @angular/material@9 --allow-dirty
 ```
 
 v9 부터는 기본 컴파일러로 AOT를 사용한다.  
@@ -159,7 +165,10 @@ v9 부터는 기본 컴파일러로 AOT를 사용한다.
 
 ```
 npx @angular/cli@10 update @angular/core@10 @angular/cli@10
+
 npx @angular/cli@10 update @angular/material@10
+또는
+npx @angular/cli@10 update @angular/material@10 --allow-dirty
 ```
 
 v10 부터는 CommonJS 모듈 방식을 사용하는 경우 warning을 표시한다.  
@@ -191,12 +200,38 @@ CommonJS 모듈 방식은 애플리케이션 최적화 단계에서 코드 압�
 # 10.0 -> 11.0
 ```
 npx @angular/cli@11 update @angular/core@11 @angular/cli@11
+
 npx @angular/cli@11 update @angular/material@11
+또는
+npx @angular/cli@11 update @angular/material@11 --allow-dirty
 ```
 
 ---
 # 11.0 -> 12.0
 ```
 npx @angular/cli@12 update @angular/core@12 @angular/cli@12
+
 npx @angular/cli@12 update @angular/material@12
+또는
+npx @angular/cli@12 update @angular/material@12 --allow-dirty
+```
+
+12 버전 부터는 View Engine compiler가 deprecated 되었다.
+> Project is attempting to disable the Ivy compiler. Angular versions 12 and higher do not support the deprecated View Engine compiler for applications. The Ivy compiler will be used to build this project.  
+For additional information or if the build fails, please see https://angular.io/guide/ivy
+
+### tsconfig.app.json -> `"enableIvy": true`
+```json
+  "angularCompilerOptions": {
+    "enableIvy": true
+  }
+```
+
+### angular.json -> `"aot": true`
+```json
+"architect": {
+"build": {
+  "builder": "@angular-devkit/build-angular:browser",
+  "options": {
+    "aot": true,
 ```
