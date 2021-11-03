@@ -8,7 +8,8 @@ tags:
 
 ### 메이저 버전 간 마이그레이션은 지원하지 않기 때문에 메이저 버전 하나씩 올려야함.
 
-> https://update.angular.io/?l=3&v=5.2-13.0
+
+ > https://update.angular.io/?l=3&v=5.2-13.0
 ---
 
 # 5.2 -> 6.0
@@ -22,6 +23,13 @@ tags:
 `@angular/platform-browser`에서 `DOCUMENT`를 사용하는 경우  
 -> `@angular/common`에서 가져오도록 수정
 
+### cli가 없으므로 `npm i @angular/cli`  
+### angular-cli.json -> angular.json으로 변경을 위해
+`ng update @angular/cli`
+
+-> 이 명령어는 latest로 받아오기 때문에 angular.json으로 변경된 거 확인 후 다시 @6로 변경 필요함.  
+`ng update @angular/cli --from=1.7.4 --to=6 --migrate-only` 이방법도 참고
+
 ## 명령 실행
 ```
 npx @angular/cli@6 update @angular/cli@6
@@ -29,10 +37,6 @@ npx @angular/cli@6 update @angular/core@6
 npx @angular/cli@6 update @angular/material@6
 ```
 
-만약 angular-cli.json -> angular.json으로 변경 안된다면 아래 실행
-`ng update @angular/cli`  
--> 이 명령어는 latest로 받아오기 때문에 angular.json으로 변경된 거 확인 후 다시 @6로 변경 필요함.  
-`ng update @angular/cli --from=1.7.4 --to=6 --migrate-only` 이방법도 참고
 
 ## rxjs 관련 마이그레이션은 자동으로 하는 툴이 있다.
 > https://github.com/ReactiveX/rxjs-tslint
