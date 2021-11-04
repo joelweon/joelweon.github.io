@@ -7,10 +7,8 @@ tags:
 
 
 ### 메이저 버전 간 마이그레이션은 지원하지 않기 때문에 메이저 버전 하나씩 올려야함.
-
-
- > https://update.angular.io/?l=3&v=5.2-13.0
 ---
+> https://update.angular.io/?l=3&v=5.2-13.0
 
 # 5.2 -> 6.0
 > node version: 8 이상
@@ -20,8 +18,7 @@ tags:
 `HttpModule -> HttpClientModule`  
 `Http -> HttpClient`  
 
-`@angular/platform-browser`에서 `DOCUMENT`를 사용하는 경우  
--> `@angular/common`에서 가져오도록 수정
+
 
 ### cli가 없으므로 `npm i @angular/cli`  
 ### angular-cli.json -> angular.json으로 변경을 위해
@@ -37,6 +34,15 @@ npx @angular/cli@6 update @angular/core@6
 npx @angular/cli@6 update @angular/material@6
 ```
 
+## 패키지 및 모듈 변경
+`@angular/platform-browser`에서 `DOCUMENT`를 사용하는 경우  
+-> `@angular/common`에서 가져오도록 수정
+```
+ng2-translate -> @ngx-translate/core
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core'
+import {TranslateHttpLoader} from '@ngx-translate/http-loader'
+TranslateStaticLoader -> TranslateHttpLoader
+```
 
 ## rxjs 관련 마이그레이션은 자동으로 하는 툴이 있다.
 > https://github.com/ReactiveX/rxjs-tslint
@@ -92,14 +98,6 @@ npx @angular/cli@7 update @angular/cli@7 @angular/core@7
 npx @angular/cli@7 update @angular/material@7
 ```
 
-
-## 패키지 및 모듈 변경
-```
-ng2-translate -> @ngx-translate/core
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core'
-import {TranslateHttpLoader} from '@ngx-translate/http-loader'
-TranslateStaticLoader -> TranslateHttpLoader
-```
 # 7.0 -> 8.0
 
 > node version: 10.13 이상
