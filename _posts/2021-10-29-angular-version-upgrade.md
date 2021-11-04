@@ -98,6 +98,10 @@ npx @angular/cli@7 update @angular/cli@7 @angular/core@7
 npx @angular/cli@7 update @angular/material@7
 ```
 
+만약 @버전으로 명시했어도 최신버전으로 업데이트가 되면 수동으로 package.json에서 버전 명시하고
+`npm i`로 설치 후 ng serve로 테스트 진행.
+
+
 # 7.0 -> 8.0
 
 > node version: 10.13 이상
@@ -108,6 +112,7 @@ npx @angular/cli@8 update @angular/cli@8 @angular/core@8
 npx @angular/cli@8 update @angular/material@8
 또는
 npx @angular/cli@8 update @angular/material@8 --allow-dirty
+-> Repository is not clean 오류 날 경우(Angular 8 버전 이슈)
 ```
 `@angular/material` import시 deep하게 import하도록 변경됨.  
 `@angular/material -> @angular/material/button` material@8로 update하면 자동으로 됨.
@@ -116,6 +121,13 @@ npx @angular/cli@8 update @angular/material@8 --allow-dirty
 > Updates Angular Material to v8.
   ✓  Updated Angular Material to version 8
 ```
+```
+TypeScript project "src/tsconfig.spec.json" has syntactical errors which could cause an incomplete migration. Please fix the following failures and rerun the migration:
+node_modules/@types/node/assert.d.ts(12,72): error TS1144: '{' or ';' expected.
+...
+```
+### -> Migration can be rerun with: `ng update @angular/core --from 7 --to 8 --migrate-only`
+
 
 ## CSS 변경
 `/deep/ -> ::ng-deep`
