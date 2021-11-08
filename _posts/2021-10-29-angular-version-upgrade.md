@@ -98,8 +98,10 @@ npx @angular/cli@7 update @angular/cli@7 @angular/core@7
 npx @angular/cli@7 update @angular/material@7
 ```
 
-만약 @버전으로 명시했어도 최신버전으로 업데이트가 되면 수동으로 package.json에서 버전 명시하고
-`npm i`로 설치 후 ng serve로 테스트 진행.
+### 만약 @버전으로 명시했어도 최신버전(latest)으로 업데이트 되면 아래 작업 수행  
+- `node_modules` 폴더 삭제
+- `npm cache clean --force`
+- `package-lock.json` 삭제
 
 
 # 7.0 -> 8.0
@@ -112,7 +114,7 @@ npx @angular/cli@8 update @angular/cli@8 @angular/core@8
 npx @angular/cli@8 update @angular/material@8
 또는
 npx @angular/cli@8 update @angular/material@8 --allow-dirty
--> Repository is not clean 오류 날 경우(Angular 8 버전 이슈)
+-> Repository is not clean 오류 날 경우(Angular 8 이상인 경우 발생)
 ```
 `@angular/material` import시 deep하게 import하도록 변경됨.  
 `@angular/material -> @angular/material/button` material@8로 update하면 자동으로 됨.
@@ -126,17 +128,18 @@ TypeScript project "src/tsconfig.spec.json" has syntactical errors which could c
 node_modules/@types/node/assert.d.ts(12,72): error TS1144: '{' or ';' expected.
 ...
 ```
-### -> Migration can be rerun with: `ng update @angular/core --from 7 --to 8 --migrate-only`
+### 참고-> Migration can be rerun with: `ng update @angular/core --from 7 --to 8 --migrate-only`
 
 
 ## CSS 변경
 `/deep/ -> ::ng-deep`
 
 
-## Repository is not clean 오류(Angular 8 버전 이슈)
+## Repository is not clean 오류(Angular 8 버전부터)
 > Repository is not clean. Update changes will be mixed with pre-existing changes.
 
 일부 아래와 같은 문구가 나오면서 버전 업데이트가 안되는 경우가 있다.
+(커밋 내역이 있을 경우 업데이트 막는 것으로 보임)  
 그러면 아래의 방법으로 `--allow-dirty`를 추가해서 명령어 호출한다.
 
 -> `ng update @angular/material@8 --allow-dirty` 또는 `ng update @angular/material@8 --allow-dirty --force`
@@ -144,11 +147,7 @@ node_modules/@types/node/assert.d.ts(12,72): error TS1144: '{' or ';' expected.
 ---
 # 8.0 -> 9.0
 ```
-npx @angular/cli@9 update @angular/core@9 @angular/cli@9
-
-npx @angular/cli@9 update @angular/material@9
-또는
-npx @angular/cli@9 update @angular/material@9 --allow-dirty
+npx @angular/cli@9 update @angular/core@9 @angular/cli@9 @angular/material@9 --allow-dirty
 ```
 
 v9 부터는 기본 컴파일러로 AOT를 사용한다.  
@@ -178,11 +177,7 @@ v9 부터는 기본 컴파일러로 AOT를 사용한다.
 `npm ls` 명령어를 통해 필요한 의존성 목록을 확인할 수 있다.
 
 ```
-npx @angular/cli@10 update @angular/core@10 @angular/cli@10
-
-npx @angular/cli@10 update @angular/material@10
-또는
-npx @angular/cli@10 update @angular/material@10 --allow-dirty
+npx @angular/cli@10 update @angular/core@10 @angular/cli@10 @angular/material@10 --allow-dirty
 ```
 
 v10 부터는 CommonJS 모듈 방식을 사용하는 경우 warning을 표시한다.  
@@ -213,21 +208,13 @@ CommonJS 모듈 방식은 애플리케이션 최적화 단계에서 코드 압�
 ---
 # 10.0 -> 11.0
 ```
-npx @angular/cli@11 update @angular/core@11 @angular/cli@11
-
-npx @angular/cli@11 update @angular/material@11
-또는
-npx @angular/cli@11 update @angular/material@11 --allow-dirty
+npx @angular/cli@11 update @angular/core@11 @angular/cli@11 @angular/material@11 --allow-dirty
 ```
 
 ---
 # 11.0 -> 12.0
 ```
-npx @angular/cli@12 update @angular/core@12 @angular/cli@12
-
-npx @angular/cli@12 update @angular/material@12
-또는
-npx @angular/cli@12 update @angular/material@12 --allow-dirty
+npx @angular/cli@12 update @angular/core@12 @angular/cli@12 @angular/material@12 --allow-dirty
 ```
 
 12 버전 부터는 View Engine compiler가 deprecated 되었다.
