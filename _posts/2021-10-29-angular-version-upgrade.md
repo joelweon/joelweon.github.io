@@ -94,13 +94,15 @@ TranslateStaticLoader -> TranslateHttpLoader
 ---
 # 6.0 -> 7.0
 ```
-npx @angular/cli@7 update @angular/cli@7 @angular/core@7
-npx @angular/cli@7 update @angular/material@7
+npx @angular/cli@7 update @angular/cli@7 @angular/core@7 @angular/material@7
 ```
 
-### 만약 @버전으로 명시했어도 최신버전(latest)으로 업데이트 되면 아래 작업 수행  
+### 만약 @버전으로 명시했어도 최신버전(latest)으로 업데이트 되면 아래 작업 수행
+`C:\Users\%USERNAME%\AppData\Roaming` > `npm-cache` 폴더 삭제
+
+### 그외 캐시 지우는 방법
+- `npm cache clean --force
 - `node_modules` 폴더 삭제
-- `npm cache clean --force`
 - `package-lock.json` 삭제
 
 
@@ -139,10 +141,10 @@ node_modules/@types/node/assert.d.ts(12,72): error TS1144: '{' or ';' expected.
 > Repository is not clean. Update changes will be mixed with pre-existing changes.
 
 일부 아래와 같은 문구가 나오면서 버전 업데이트가 안되는 경우가 있다.
-(커밋 내역이 있을 경우 업데이트 막는 것으로 보임)  
+(리포지토리에 수정되거나 추적되지 않은 파일이 포함된 경우 커밋 막음)  
 그러면 아래의 방법으로 `--allow-dirty`를 추가해서 명령어 호출한다.
 
--> `ng update @angular/material@8 --allow-dirty` 또는 `ng update @angular/material@8 --allow-dirty --force`
+-> `--allow-dirty`를 추가해서 명령어 실행
 
 ---
 # 8.0 -> 9.0
