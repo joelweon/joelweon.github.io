@@ -101,14 +101,15 @@ npx @angular/cli@7 update @angular/cli@7 @angular/core@7 @angular/material@7
 `C:\Users\%USERNAME%\AppData\Roaming` > `npm-cache` 폴더 삭제
 
 ### 그외 캐시 지우는 방법
-- `npm cache clean --force
+- `npm cache clean --force`
 - `node_modules` 폴더 삭제
 - `package-lock.json` 삭제
 
 
 # 7.0 -> 8.0
 
-> node version: 10.13 이상
+> node version: 10.13 이상  
+local에서는 12.22.7버전을 사용함.
 
 ```
 npx @angular/cli@8 update @angular/cli@8 @angular/core@8
@@ -116,7 +117,7 @@ npx @angular/cli@8 update @angular/cli@8 @angular/core@8
 npx @angular/cli@8 update @angular/material@8
 또는
 npx @angular/cli@8 update @angular/material@8 --allow-dirty
--> Repository is not clean 오류 날 경우(Angular 8 이상인 경우 발생)
+-> Repository is not clean 오류 날 경우(Angular 8 이상& 커밋내역 있는 경우 발생)
 ```
 `@angular/material` import시 deep하게 import하도록 변경됨.  
 `@angular/material -> @angular/material/button` material@8로 update하면 자동으로 됨.
@@ -149,7 +150,8 @@ node_modules/@types/node/assert.d.ts(12,72): error TS1144: '{' or ';' expected.
 ---
 # 8.0 -> 9.0
 ```
-npx @angular/cli@9 update @angular/core@9 @angular/cli@9 @angular/material@9 --allow-dirty
+npx @angular/cli@9 update @angular/core@9 @angular/cli@9
+npx @angular/cli@9 update @angular/material@9 --allow-dirty
 ```
 
 v9 부터는 기본 컴파일러로 AOT를 사용한다.  
@@ -179,7 +181,8 @@ v9 부터는 기본 컴파일러로 AOT를 사용한다.
 `npm ls` 명령어를 통해 필요한 의존성 목록을 확인할 수 있다.
 
 ```
-npx @angular/cli@10 update @angular/core@10 @angular/cli@10 @angular/material@10 --allow-dirty
+npx @angular/cli@10 update @angular/core@10 @angular/cli@10
+npx @angular/cli@10 update @angular/material@10 --allow-dirty
 ```
 
 v10 부터는 CommonJS 모듈 방식을 사용하는 경우 warning을 표시한다.  
@@ -210,13 +213,15 @@ CommonJS 모듈 방식은 애플리케이션 최적화 단계에서 코드 압�
 ---
 # 10.0 -> 11.0
 ```
-npx @angular/cli@11 update @angular/core@11 @angular/cli@11 @angular/material@11 --allow-dirty
+npx @angular/cli@11 update @angular/core@11 @angular/cli@11
+npx @angular/cli@11 update @angular/material@11 --allow-dirty
 ```
 
 ---
 # 11.0 -> 12.0
 ```
-npx @angular/cli@12 update @angular/core@12 @angular/cli@12 @angular/material@12 --allow-dirty
+npx @angular/cli@12 update @angular/core@12 @angular/cli@12
+npx @angular/cli@12 update @angular/material@12 --allow-dirty
 ```
 
 12 버전 부터는 View Engine compiler가 deprecated 되었다.
@@ -237,4 +242,13 @@ For additional information or if the build fails, please see https://angular.io/
   "builder": "@angular-devkit/build-angular:browser",
   "options": {
     "aot": true,
+...
+```
+
+---
+# 12.0 -> 13.0
+
+```shell
+npx @angular/cli@13 update @angular/core@13 @angular/cli@13
+npx @angular/cli@13 update @angular/material@13
 ```
