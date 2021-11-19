@@ -119,7 +119,8 @@ TranslateModule.forRoot({
 ---
 # 6.0 -> 7.0
 ```
-npx @angular/cli@7 update @angular/cli@7 @angular/core@7 @angular/material@7
+npx @angular/cli@7 update @angular/cli@7 @angular/core@7
+npx @angular/cli@7 update @angular/material@7
 ```
 
 ### 만약 @버전으로 명시했어도 최신버전(latest)으로 업데이트 되면 아래 작업 수행
