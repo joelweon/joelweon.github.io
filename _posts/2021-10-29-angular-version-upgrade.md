@@ -37,12 +37,34 @@ npx @angular/cli@6 update @angular/material@6
 ## 패키지 및 모듈 변경
 `@angular/platform-browser`에서 `DOCUMENT`를 사용하는 경우  
 -> `@angular/common`에서 가져오도록 수정
+
+### ng2-translate
 ```
 ng2-translate -> @ngx-translate/core
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core'
 import {TranslateHttpLoader} from '@ngx-translate/http-loader'
 TranslateStaticLoader -> TranslateHttpLoader
 ```
+
+### TranslateModule
+```javascript
+TranslateModule.forRoot({
+  provide: TranslateLoader,
+  useFactory: (createTranslateLoader),
+  deps: [Http]
+ })
+```
+### --> 변경
+```javascript
+TranslateModule.forRoot({
+    loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+    }
+})
+```
+
 
 ## rxjs 관련 마이그레이션은 자동으로 하는 툴이 있다.
 > https://github.com/ReactiveX/rxjs-tslint
