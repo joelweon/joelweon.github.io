@@ -20,12 +20,12 @@ tags:
 
 
 
-### cli가 없으므로 `npm i @angular/cli`  
+### cli가 없으므로 `npm i @angular/cli@6`  
 ### angular-cli.json -> angular.json으로 변경을 위해
-`ng update @angular/cli`
+`ng update @angular/cli@6` 안되면 `ng update @angular/cli`
 
--> 이 명령어는 latest로 받아오기 때문에 angular.json으로 변경된 거 확인 후 다시 @6로 변경 필요함.  
-`ng update @angular/cli --from=1.7.4 --to=6 --migrate-only` 이방법도 참고
+-> 6버전이 아니라 latest로 받아오면 angular.json으로 변경된 거 확인 후 다시 @6로 변경 필요함.  
+
 
 ## 명령 실행
 ```
@@ -49,6 +49,9 @@ TranslateStaticLoader -> TranslateHttpLoader
 
 `npm i -g rxjs-tslint`  
 `rxjs-5-to-6-migrate -p src/tsconfig.app.json`  -> tsconfig.app.json 위치를 설정하면 된다.
+
+### `rxjs-compat` 삭제
+
 
 ## 의존성 버전 변경
 `Package "angular2-jwt" has an incompatible peer dependency to "rxjs" (requires "^5.0.0", would install "6.6.7").`  
