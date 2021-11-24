@@ -59,6 +59,30 @@ pull = fetch + merge
 ```
 ---
 
+## stash
+- Working Directory에서 add를 하면 track중인 상태가 된다.
+- 이 파일들은 Index area에 있는 상태이고 이 Index area 에 있는 파일을 Stash area로 옮기는 것이다.
+- 브랜치를 변경해야 하는데 미완료된 상태의 파일을 커밋하기는 애매할때 사용 
+
+### 임시 저장하기
+`git stash`
+
+### stash 목록
+`git stash list`
+
+### stash 불러오고 삭제
+`gir stash pop`
+
+### stash 불러오기(이름 생략가능 - 최근 내용 불러옴)
+`git stash apply <이름>`  
+`예) git stash apply 0`
+
+### stash 삭제
+`git stash drop <이름>`
+
+
+---
+
 ## 브랜치
 
 ### 현재 사용하는 브랜치 조회
