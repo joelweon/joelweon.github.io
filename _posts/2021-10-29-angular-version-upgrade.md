@@ -10,6 +10,9 @@ tags:
 ---
 > https://update.angular.io/?l=3&v=5.2-13.0
 
+
+
+
 # 5.2 -> 6.0
 > node version: 8 이상
 
@@ -33,6 +36,17 @@ npx @angular/cli@6 update @angular/cli@6
 npx @angular/cli@6 update @angular/core@6  
 npx @angular/cli@6 update @angular/material@6
 ```
+
+### 만약 @버전으로 명시했어도 최신버전(latest)으로 업데이트 되면 아래 작업 수행
+1. 최신버전으로 바뀐 모듈 이전버전으로 바꾸고 아래 명령어 실행  
+`npx @angular/cli@6 update @angular/core@6 @angular/material@6` 합쳐서 명령 날리기
+2. 그래도 안되면 캐시 지우는 방법  
+`C:\Users\%USERNAME%\AppData\Roaming` > `npm-cache` 폴더 삭제
+
+### 그 외 캐시 지우는 방법
+- `npm cache clean --force`
+- `node_modules` 폴더 삭제
+- `package-lock.json` 삭제
 
 ## 패키지 및 모듈 변경
 `@angular/platform-browser`에서 `DOCUMENT`를 사용하는 경우  
@@ -122,15 +136,6 @@ TranslateModule.forRoot({
 npx @angular/cli@7 update @angular/cli@7 @angular/core@7
 npx @angular/cli@7 update @angular/material@7
 ```
-
-### 만약 @버전으로 명시했어도 최신버전(latest)으로 업데이트 되면 아래 작업 수행
-`C:\Users\%USERNAME%\AppData\Roaming` > `npm-cache` 폴더 삭제
-
-### 그외 캐시 지우는 방법
-- `npm cache clean --force`
-- `node_modules` 폴더 삭제
-- `package-lock.json` 삭제
-
 
 # 7.0 -> 8.0
 
