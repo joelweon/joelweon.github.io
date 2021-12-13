@@ -16,16 +16,9 @@ tags:
 # 5.2 -> 6.0
 > node version: 8 이상
 
-## deprecated 수정(`@angular/http -> @angular/common/http`)
-
-`HttpModule -> HttpClientModule`  
-`Http -> HttpClient`  
-
-
-
 ### cli가 없으므로 `npm i @angular/cli@6`  
 ### angular-cli.json -> angular.json으로 변경을 위해
-`ng update @angular/cli@6` 안되면 `ng update @angular/cli`
+`ng update @angular/cli`
 
 -> 6버전이 아니라 latest로 받아오면 angular.json으로 변경된 거 확인 후 다시 @6로 변경 필요함.  
 
@@ -35,6 +28,10 @@ tags:
 npx @angular/cli@6 update @angular/cli@6
 npx @angular/cli@6 update @angular/core@6  
 npx @angular/cli@6 update @angular/material@6
+
+Windows의 경우 아래
+cmd /C "set "NG_DISABLE_VERSION_CHECK=1" && npx @angular/cli@6 update @angular/cli@6 @angular/core@6"
+cmd /C "set "NG_DISABLE_VERSION_CHECK=1" && npx @angular/cli@6 update @angular/material@6"
 ```
 
 ### 만약 @버전으로 명시했어도 최신버전(latest)으로 업데이트 되면 아래 작업 수행
@@ -48,12 +45,16 @@ npx @angular/cli@6 update @angular/material@6
 - `node_modules` 폴더 삭제
 - `package-lock.json` 삭제
 
-## 패키지 및 모듈 변경
-`@angular/platform-browser`에서 `DOCUMENT`를 사용하는 경우  
--> `@angular/common`에서 가져오도록 수정
+## deprecated 수정
 
-### ng2-translate
+### @angular/http
+```shell
+@angular/http -> @angular/common/http
+HttpModule -> HttpClientModule  
+Http -> HttpClient  
 ```
+### ng2-translate
+```shell
 ng2-translate -> @ngx-translate/core
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core'
 import {TranslateHttpLoader} from '@ngx-translate/http-loader'
@@ -79,17 +80,19 @@ TranslateModule.forRoot({
 })
 ```
 
+## 패키지 및 모듈 변경
+`@angular/platform-browser`에서 `DOCUMENT`를 사용하는 경우  
+-> `@angular/common`에서 가져오도록 수정
 
-## rxjs 관련 마이그레이션은 자동으로 하는 툴이 있다.
-> https://github.com/ReactiveX/rxjs-tslint
-
+## rxjs 관련 마이그레이션은 자동으로 하는 툴 실행
 `npm i -g rxjs-tslint`  
 `rxjs-5-to-6-migrate -p src/tsconfig.app.json`  -> tsconfig.app.json 위치를 설정하면 된다.
 
 ### `rxjs-compat` 삭제
+> 참고) https://github.com/ReactiveX/rxjs-tslint
 
 
-## 의존성 버전 변경
+## 오류) 의존성 버전 변경
 `Package "angular2-jwt" has an incompatible peer dependency to "rxjs" (requires "^5.0.0", would install "6.6.7").`  
 -> 이 경우는 angular2-jwt에서 사용하는 rxjs 버전이 낮은데
 현재 프로젝트에서 사용하는 rxjs는 6.x라 angular2-jwt를 업그레이드 시켜준다.  
@@ -135,6 +138,13 @@ TranslateModule.forRoot({
 ```
 npx @angular/cli@7 update @angular/cli@7 @angular/core@7
 npx @angular/cli@7 update @angular/material@7
+```
+
+### @7으로 업데이트하면 `7.2.16`으로 업데이트된다. 이후 7로 material 업데이트시 최신 LTS인 13으로 업데이트 되는 문제가 있다.
+```shell
+"@angular/core": "^7.2.16"
+->
+"@angular/core": "7.2.15",
 ```
 
 # 7.0 -> 8.0
