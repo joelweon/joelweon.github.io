@@ -144,9 +144,10 @@ npx @angular/cli@7 update @angular/material@7
 아래 순서대로 진행해보기
 1. `npx @angular/cli@7 update @angular/cli@7 @angular/core@7` core 7 업데이트 후
 2. 7로 업데잍트된 패키지 `^7.2.16` -> `7.2.15`로 수정한다. 그리고 `npm i`
-3. `npx @angular/cli@7 update @angular/cli@7 @angular/core@7 @angular/material@7.0.0`    
-(=> 이것저것 하다가 우연히 되는듯한 느낌..)  
-(core가 없데이트 되는게 아니면 material 13으로 올라가더라도 기존 버전으로 내려도 될 것 같기도 하고..)
+3. `npx @angular/cli@7 update @angular/cli@7 @angular/core@7 @angular/material@7.0.0`
+
+(=> 이것저것 하다가 우연히 되는듯한 느낌..  
+core가 없데이트 되는게 아니면 material 13으로 올라가더라도 기존 버전으로 내려도 될 것 같기도 하고..)
 
 # 7.0 -> 8.0
 
@@ -234,7 +235,7 @@ CommonJS 모듈 방식은 애플리케이션 최적화 단계에서 코드 압�
 > WARNING in C:\Users\...ts depends on 'lodash'. CommonJS or AMD dependencies can cause optimization bailouts
 
 해결 방법은 2가지다.  
-1) ECMAScript 모듈 방식으로 구현된 패키지를 사용하거나(권장)
+1) ECMAScript 모듈 방식으로 구현된 패키지를 사용하거나(권장)  
 2) warning을 허용하는 경우가 있다.
 
 ### angular.json - build 옵션 추가
