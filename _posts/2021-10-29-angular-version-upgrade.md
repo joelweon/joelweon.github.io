@@ -238,7 +238,7 @@ CommonJS 모듈 방식은 애플리케이션 최적화 단계에서 코드 압�
 1) ECMAScript 모듈 방식으로 구현된 패키지를 사용하거나(권장)  
 2) warning을 허용하는 경우가 있다.
 
-### angular.json - build 옵션 추가
+### 아래는 2번 적용하는 경우 - angular.json - build 옵션 추가
 ```json
 "build": {
   "builder": "@angular-devkit/build-angular:browser",
