@@ -140,12 +140,13 @@ npx @angular/cli@7 update @angular/cli@7 @angular/core@7
 npx @angular/cli@7 update @angular/material@7
 ```
 
-### @7으로 업데이트하면 `7.2.16`으로 업데이트된다. 이후 7로 material 업데이트시 최신 LTS인 13으로 업데이트 되는 문제가 있다.
-```shell
-"@angular/core": "^7.2.16"
-->
-"@angular/core": "7.2.15",
-```
+### @7로 업데이트하면 `7.2.16`으로 업데이트된다. 이후 material@7 업데이트시 최신 LTS인 13으로 업데이트 되는 문제가 있다.
+아래 순서대로 진행해보기
+1. `npx @angular/cli@7 update @angular/cli@7 @angular/core@7` core 7 업데이트 후
+2. 7로 업데잍트된 패키지 `^7.2.16` -> `7.2.15`로 수정한다. 그리고 `npm i`
+3. `npx @angular/cli@7 update @angular/cli@7 @angular/core@7 @angular/material@7.0.0`    
+(=> 이것저것 하다가 우연히 되는듯한 느낌..)  
+(core가 없데이트 되는게 아니면 material 13으로 올라가더라도 기존 버전으로 내려도 될 것 같기도 하고..)
 
 # 7.0 -> 8.0
 
@@ -176,7 +177,7 @@ node_modules/@types/node/assert.d.ts(12,72): error TS1144: '{' or ';' expected.
 
 
 ## CSS 변경
-`/deep/ -> ::ng-deep`
+`/deep/` -> `::ng-deep`
 
 
 ## Repository is not clean 오류(Angular 8 버전부터)
