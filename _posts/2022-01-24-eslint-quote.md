@@ -1,9 +1,9 @@
 ---
 layout:  post
-title: Typescript typeRoots
+title: single VS double quotation 사용 비율 in javascript
 tags:
-- typescript
-- frontend
+- statistics
+- quotation
 ---
 
 

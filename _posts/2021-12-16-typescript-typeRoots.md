@@ -1,21 +1,29 @@
 ---
 layout:  post
-title: Typescript typeRoots
+title: prettier(eslint) 호환되게 intellij code style 수정
 tags:
-- typescript
-- frontend
+- prettier
+- eslint
+- formatter
+- intellij
 ---
 
+자동 정렬을 하면 인텔리제이에서 적용한 formatter로 변경 된다.
+- Settings | Editor | Code Style | TypeScript
 
-## typeRoots를 설정하면 해당 폴더의 하위 패키지만 컴파일에 포함된다
+### Fix ESLint 후 자동정렬(`Ctrl + Alt + L`) 했을 때 충돌나지 않도록 하기
 
-```json
-"typeRoots": [
-  "node_modules/@types"
-]
+
+## 1. 자동정렬해도 기존대로 `{}`하기
+![code_style1.png](/assets/img/code_style1.png)
+#### Fix하면 `{}`이렇게 된다. -> 자동정렬하면 아래 처럼 된다. -> 위에 설정으로 기존 공백 유지하기
+```javascript
+export class PrivateDataAccLogModule {
+}
 ```
 
-## 기본적으로는 모든 `@types` 패키지가 컴파일에 포함된다.
+## 2. import braces 공백 / Object 공백 넣기  
+![code_style2.png](assets/img/code_style2.png)
 
-
- > https://typescript-kr.github.io/pages/tsconfig.json.html
+## 3. import 문 길면 아래로 짜르기(Chop down if long)
+![code_style3.png](assets/img/code_style3.png)
