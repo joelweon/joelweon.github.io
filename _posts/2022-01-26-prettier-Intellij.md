@@ -9,7 +9,7 @@ tags:
 ---
 
 자동 정렬을 하면 인텔리제이에서 적용한 formatter로 변경 된다.
-- Settings | Editor | Code Style | TypeScript
+> 에디터 위치: Settings | Editor | Code Style | TypeScript
 
 ### Fix ESLint 후 자동정렬(`Ctrl + Alt + L`) 했을 때 충돌나지 않도록 하기
 
