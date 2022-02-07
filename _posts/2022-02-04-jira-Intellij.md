@@ -21,6 +21,6 @@ https://id.atlassian.com/manage-profile/security/api-tokens
 ![set_configure_servers.png](/assets/img/set_configure_servers.png)
 
 ## 4. 커밋메시지 바인딩 (설정 탭에서도 적용 가능)
-![set_commit_msg.png](assets/img/set_commit_msg.png)
+![set_commit_msg.png](/assets/img/set_commit_msg.png)
 - {summary} : 요약(이슈제목)
 - {id} : 토큰 ID(이슈번호)
