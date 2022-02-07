@@ -12,6 +12,8 @@ tags:
 
 ### 변경내역 인덱스에 추가
 `git add ./*`
+### <-> add 취소하기
+`git restore --staged <file>`
 
 ### 변경내역 인덱스에 추가
 `git commit -m "주석"`  
