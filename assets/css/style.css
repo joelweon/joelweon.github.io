@@ -2,7 +2,7 @@ body {background-color: black;color: white}
 h1, h2, h3, h4, h5, h6 {
     color: white;
 }
-pre {
+code, pre {
     background-color: #515151;
 }
 tbody tr:nth-child(odd) td, tbody tr:nth-child(odd) th {
