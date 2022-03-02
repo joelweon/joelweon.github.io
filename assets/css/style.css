@@ -1,0 +1,12 @@
+body {background-color: black;color: white}
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+}
+pre {
+    background-color: #515151;
+}
+tbody tr:nth-child(odd) td, tbody tr:nth-child(odd) th {
+    background-color: #483737;
+}
+.highlight .o {color: #ffb6b6;}
+.highlight .nb {color: #14b9b9;}
