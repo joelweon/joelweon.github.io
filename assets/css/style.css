@@ -8,7 +8,6 @@ pre {
 tbody tr:nth-child(odd) td, tbody tr:nth-child(odd) th {
     background-color: #483737;
 }
-code {color: }
 .highlight .o {color: #ffb6b6;}
 .highlight .nb {color: #14b9b9;}
 
