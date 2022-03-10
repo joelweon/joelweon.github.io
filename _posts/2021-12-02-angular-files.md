@@ -74,4 +74,4 @@ TypeScript 컴파일 옵션 설정 파일이다.
 ### tslint.json
 TSLint가 사용하는 linting(구문 체크) 설정 파일이다. `ng lint`명령어 실행시 참조된다.
 
-> Angular Essentials 참고
+> 참고: [Angular Essentials](http://www.yes24.com/Product/Goods/62063090)
