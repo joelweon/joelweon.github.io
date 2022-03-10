@@ -45,7 +45,7 @@ HttpHandler는 [Express](https://poiemaweb.com/express-basics#4-middleware) 의 
 첫번째 파라미터 HttpRequest는 이뮤터블이기 때문에 객체 내용을 변경할 수 없다.  
 그래서 clone 메소드를 통해 새로운 복사본을 생성한다.
 ```typescript
-req = req.clone({ headers: req.headers.append('Authorization', `Bearer ${sessionStorage.getItem('token')}`) });
+req = req.clone({ headers: req.headers.append('Authorization', `Bearer ${token}`) });
 req = req.clone({ headers: req.headers.append('Content-Type', 'application/json;charset=UTF-8') });
 req = req.clone({ headers: req.headers.append('Accept', 'application/json') });
 return next.handle(req);

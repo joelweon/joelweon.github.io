@@ -14,11 +14,14 @@ tags:
 
 ### HTML 표준폼 비활성화
 - 템플릿 기반 폼이 제공하는 유효성 검증을 사용할 것임으로 `novalidate`추가
+
 ```html
 <form novalidate></form>
 ```
+
 ### 템플릿 기반 폼 비활성화
 - `FormsModule`을 추가함으로 자동 적용되는 `NgForm 디렉티브` 적용 취소(HTML 표준폼으로 동작)
+
 ```html
 <form ngNoForm></form>
 ```
