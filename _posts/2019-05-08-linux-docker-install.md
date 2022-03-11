@@ -21,24 +21,19 @@ $ ```sudo apt-get install \
     gnupg-agent \
     software-properties-common```
 ### 4. Add Docker’s official GPG key:
+```shell
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
 
-$ `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
+### 5. `sudo apt-key fingerprint 0EBFCD88`
 
+### 6. `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"`
 
+### 7. `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"`
 
-### 5. 
-$ `sudo apt-key fingerprint 0EBFCD88`
+### 8. `sudo apt-get update`
 
-### 6. 
-`sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"`
-
-### 7. 
-`sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"`
-
-
-### 8. sudo apt-get update
-
-### 9. sudo apt-get install docker-ce
+### 9. `sudo apt-get install docker-ce`
 
 ***
 
