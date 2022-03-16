@@ -1,57 +1,108 @@
 <html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    
-    <meta name="description" content="{{ page.title }},{% if post %}{% assign tags = post.tags %}{% else %}{% assign tags = page.tags %}{% endif %}{% for tag in tags %}{{tag}}{% unless forloop.last %},{% endunless %}{% endfor %}">
-	<meta name="keywords" content="IT" />
-	<meta name="author" content="Joel Weon" />
-	
-	<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-	
+
+    <meta name="description"
+          content="{{ page.title }},{% if post %}{% assign tags = post.tags %}{% else %}{% assign tags = page.tags %}{% endif %}{% for tag in tags %}{{tag}}{% unless forloop.last %},{% endunless %}{% endfor %}">
+    <meta name="keywords" content="IT"/>
+    <meta name="author" content="Joel Weon"/>
+
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108360883-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'UA-108360883-1');
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-108360883-1');
     </script>
     <!-- Google AdSense -->
-	<!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<script>
-	  (adsbygoogle = window.adsbygoogle || []).push({
-	    google_ad_client: "ca-pub-3395153995978500",
-	    enable_page_level_ads: true
-	  });
-	</script>-->
-    <script data-ad-client="ca-pub-9086557083143929" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9086557083143929" crossorigin="anonymous"></script>
+    <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-3395153995978500",
+        enable_page_level_ads: true
+      });
+    </script>-->
+    <script data-ad-client="ca-pub-9086557083143929" async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9086557083143929"
+            crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/poole.css">
     <link rel="stylesheet" href="/assets/css/syntax.css">
     <link rel="stylesheet" href="/assets/css/syntax2.css">
     <link rel="stylesheet" href="/assets/css/lanyon.css">
     <link rel="stylesheet" href="/assets/css/style.css">
-  </head>
-  
-  <body class="theme-base-08">
-  <div class="wrap">
-      <div class="masthead">
+</head>
+
+<body class="theme-base-08">
+<div class="wrap">
+    <div class="masthead">
         <div class="container">
-          <h3 class="masthead-title">
-            <a href="/" title="Home">DevL</a>
-            <a href="/archive"><small>Archive</small></a>
-            <a href="/tags"><small>Tags</small></a>
-          </h3>
+            <h3 class="masthead-title">
+                <a href="/" title="Home">DevL</a>
+                <a href="/archive"><small>Archive</small></a>
+                <a href="/tags"><small>Tags</small></a>
+            </h3>
         </div>
-      </div>
-
-      <div class="container content">
-        <div class="page">
-          {{ content }}
-        </div>
-      </div>
     </div>
-  </body>
 
+    <div class="container content">
+        <div class="page">
+            {{ content }}
+        </div>
+    </div>
+</div>
+<!-- Channel Plugin Scripts -->
+<script>
+    (function () {
+        var w = window;
+        if (w.ChannelIO) {
+            return (window.console.error || window.console.log || function () {
+            })('ChannelIO script included twice.');
+        }
+        var ch = function () {
+            ch.c(arguments);
+        };
+        ch.q = [];
+        ch.c = function (args) {
+            ch.q.push(args);
+        };
+        w.ChannelIO = ch;
+
+        function l() {
+            if (w.ChannelIOInitialized) {
+                return;
+            }
+            w.ChannelIOInitialized = true;
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+            s.charset = 'UTF-8';
+            var x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+        }
+
+        if (document.readyState === 'complete') {
+            l();
+        } else if (window.attachEvent) {
+            window.attachEvent('onload', l);
+        } else {
+            window.addEventListener('DOMContentLoaded', l, false);
+            window.addEventListener('load', l, false);
+        }
+    })();
+    ChannelIO('boot', {
+        "pluginKey": "4fd4aea3-49d7-4086-beb8-053967a8dac3"
+    });
+</script>
+<!-- End Channel Plugin -->
+</body>
 </html>
