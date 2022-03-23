@@ -32,23 +32,33 @@ tags:
 ### shared.module에 HeaderComponent를 declaration, exports한다.
 ### 홈 모듈은 imports: CommonModule, SharedModule, declarations: HomeComponent, exports: HomeComponent  
 
-imports
-- 의존 관계에 있는 Angular library module
+
+## @NgModule 데코레이터
+### imports
+- 의존 관계에 있는 `Angular library module`
 - 기능 모듈(feature module)이라 불리는 하위 모듈
 - 라우팅 모듈
 - 서드 파티 모듈 선언
+#### -> `Angular library module`
+- Angular가 제공하는 빌트인 모듈이다.
+- package.json에서 확인 가능하다.
+- 여기에서 필요한 모듈만 루트 모듈의 imports에 기술하면 된다.
+- 루트 모듈은 반드시 `BrowserModule`을 import 하여야 하고, 하위 모듈은 `CommonModule`을 import하여야 한다.
+-
 
-providers
+### providers
 - 주입 가능한 객체(injectable object)인 서비스의 리스트를 선언한다.
 - 루트 모듈에 선언된 서비스는 애플리케이션 전역에서 사용할 수 있다.
 
-declarations
+### declarations
 - 컴포넌트
 - 디렉티브
 - 파이프의 리스트를 선언한다.
 - 모듈에 선언된 구성요소는 모듈에서 사용할 수 있다.
 
-bootstrap
+### bootstrap
 - 루트 모듈에서 사용하는 프로퍼티로서 애플리케이션의 진입점(entry point)인 루트 컴포넌트를 선언한다.
+
+
 
 > 참고: [Angular Essentials](http://www.yes24.com/Product/Goods/62063090)
