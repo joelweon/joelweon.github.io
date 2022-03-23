@@ -28,7 +28,6 @@ export class GuardSample implements CanActivate {
 ```typescript
 {path: "/home", component: HomeComponent, canActivate: [GuardSample]}
 ```
-
 -> canActivate가 true인 경우만 HomeComponent를 활성화한다.
 
 ---
