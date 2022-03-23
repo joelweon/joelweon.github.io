@@ -25,14 +25,25 @@ tags:
 ## 기능 모듈(**.module)
 - 일반적으로 특정 화면 단위를 기준으로 구성
 
-### 루트 모듈은 여러 기능 모듈을 import하고, 핵심모듈을 import한다.
-### 공유 모듈은 루트 모듈에 import되지 않고, 기능 모듈에 의해 import 되어 사용된다. 
-### 기능 모듈들은 공유 모듈을 import한다.
+---
+루트 모듈은 여러 기능 모듈을 import하고, 핵심모듈을 import한다.
 
-### shared.module에 HeaderComponent를 declaration, exports한다.
-### 홈 모듈은 imports: CommonModule, SharedModule, declarations: HomeComponent, exports: HomeComponent  
+공유 모듈은 루트 모듈에 import되지 않고, 기능 모듈에 의해 import 되어 사용된다. 
 
+기능 모듈들은 공유 모듈을 import한다.
 
+shared.module에 HeaderComponent를 declaration, exports한다.
+
+홈 모듈은
+```typescript
+{
+    imports: [CommonModule, SharedModule,],
+    declarations: [HomeComponent,],
+    exports: [HomeComponent]
+]  
+```
+
+---
 ## @NgModule 데코레이터
 ### imports
 - 의존 관계에 있는 `Angular library module`
