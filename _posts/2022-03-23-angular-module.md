@@ -56,7 +56,7 @@ shared.module에 HeaderComponent를 declaration, exports한다.
 - package.json에서 확인 가능하다.
 - 여기에서 필요한 모듈만 루트 모듈의 imports에 기술하면 된다.
 - 루트 모듈은 반드시 `BrowserModule`을 import 하여야 하고, 하위 모듈은 `CommonModule`을 import하여야 한다.
--
+
 
 ### providers
 - 주입 가능한 객체(injectable object)인 서비스의 리스트를 선언한다.
