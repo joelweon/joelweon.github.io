@@ -50,6 +50,7 @@ shared.module에 HeaderComponent를 declaration, exports한다.
 - 기능 모듈(feature module)이라 불리는 하위 모듈
 - 라우팅 모듈
 - 서드 파티 모듈 선언
+
 #### -> `Angular library module`
 - Angular가 제공하는 빌트인 모듈이다.
 - package.json에서 확인 가능하다.
