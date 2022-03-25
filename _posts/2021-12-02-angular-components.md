@@ -38,4 +38,6 @@ tags:
 - 메소드 데코레이터: `@HostListener` 
 - 파라미터 데코레이터: `@Inject`
 
-> Angular Essentials 참고
+> 참고)  
+> [Angular Essentials](http://www.yes24.com/Product/Goods/62063090)  
+> [Angular 개요 - Angular docs](https://angular.kr/guide/architecture)
