@@ -2,9 +2,7 @@
 layout:  post
 title: Design pattern
 tags:
-- windows
-- shutdown
-- command
+- design_pattern
 ---
 
 ## 싱글톤 패턴(Singleton)
@@ -15,6 +13,7 @@ tags:
 
 ### 1. private 생성자에 static 메소드
 -> 멀티쓰레드 환경에서 안전하지 않은 단점 존재
+
 ```java
 public class SingletonBasic {
   SingletonBasic instance;
@@ -33,6 +32,7 @@ public class SingletonBasic {
 ### 2. 동기화(synchronized)를 사용해 멀티쓰레드 환경에 안전하게 만드는 방법
 -> 장점: 하나의 쓰레드만 허용하므로 1번의 문제는 해결 되었으나  
 -> 단점: 메서드 호출 시마다 동기화 락이 걸려 약간의 부하가 생기는 것이 단점
+
 ```java
 public class SingletonSync {
   private static SingletonSync instance;
@@ -51,6 +51,7 @@ public class SingletonSync {
 ### 3. 이른 초기화 (eager initialization)을 사용하는 방법
 -> 장점: SingletonEager class가 로딩되는 시점에 인스턴스가 만들어지기 때문에 thread safe 함.  
 -> 단점: 이 인스턴스를 만드는데 메모리도 많이 사용하고 오래 걸리는 작업인데 쓰지 않는다면 불필요한 작업이 됨.
+
 ```java
 public class SingletonEager {
   private static final SingletonEager INSTANCE = new SingletonEager();
@@ -70,6 +71,7 @@ public class SingletonEager {
 -> 단점
 - jdk 1.5 버전부터 가능
 - 복잡한 volatile 개념이 들어감.
+
 ```java
 public class SingletonDoubleCheck {
   private static volatile SingletonDoubleCheck instance;
@@ -94,6 +96,7 @@ public class SingletonDoubleCheck {
 - getInstance가 호출 될떄 SingletonInnerHolder 클래스가 로딩되고 그때 인스턴스를 만듦
 
 -> 단점: 리플렉션(SingletonInner.class.getDeclaredConstructor())이나 직렬화 과정이 추가 된다면 싱글톤을 강제할 수 없다.
+
 ```java
 public class SingletonInner {
   private SingletonInner() {}
@@ -117,6 +120,7 @@ public class SingletonInner {
 -> 단점
 - 미리 만들어짐(eager)
 - 클래스이기 때문에 단일 상속 한계가 있다.
+
 ```java
 public enum SingletonEnum {
   INSTANCE;
@@ -127,12 +131,13 @@ public enum SingletonEnum {
 ## 팩토리 메서드 패턴(Factory method)
 어떤 객체(인스턴스)를 생성하는 것을 구체적인 클래스(concrete class)가 아닌 추상적인 인터페이스의 메서드로 감싸는 것
 
-### 1. factory 역할을 할 인터페이스 생성(Creator)
-### 2. 인터페이스에 바뀌지 않을 구현부는 작성하고, 바뀌는 부분은 추상메서드로 생성
+1. factory 역할을 할 인터페이스 생성(Creator)
+2. 인터페이스에 바뀌지 않을 구현부는 작성하고, 바뀌는 부분은 추상메서드로 생성
 - default 메서드(java8), private 메서드(java9)로 구성 가능
-### 4. 구체적인 클래스(하위 클래스)에서 구체적인 메서드 구현
-### 5. factory에서 만든 오브젝트의 타입인 Product를 다양하게 만들 수 있다.
-### 6. concreteCreator 와 마찬가지로 ConcreteProduct도 여러개를 갖을 수 있다.
+3. 구체적인 클래스(하위 클래스)에서 구체적인 메서드 구현
+4. factory에서 만든 오브젝트의 타입인 Product를 다양하게 만들 수 있다.
+5. concreteCreator 와 마찬가지로 ConcreteProduct도 여러개를 갖을 수 있다.
+
 ![factory_method.png](/assets/img/factory_method.png)
 [Creator - ShipFactory]----> [Product - Ship]
 [ConcreteCreator -WhiteshipFactory]
