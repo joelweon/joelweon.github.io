@@ -193,6 +193,30 @@ public enum SingletonEnum {
 ![builder.png](/assets/img/builder.png)
 동일한 프로세스를 거쳐 다양한 구성의 인스턴스를 만드는 방법
 
+Builder 인터페이스만 사용하여 빌더패턴을 구현할 수 있고, Director를 사용해서 구현할 수 있다.
+
+Director를 사용한다면 중복되는 builder 스택을 Director에 숨겨놓고
+클라이언트는 Director를 통해서 product를 받아서 사용한다.
+
+1. 빌더 인터페이스 생성
+2. 필드 체이닝을 위해 빌더 클래스를 리턴하도록 한다.
+3. 마지막은 Product를 리턴한다.(getProduct - 이곳에서 validation 체크해도 됨)
+
+장점
+- 빌더를 사용하지 않는다면 생성자 여러개를 만들거나 null로 세팅하거나 해야한다.
+- 순서 상관없이 필요한 구성으로 생성 가능하다.
+- 불완전한 객체의 생성을 막을 수 있다. 
+
+단점
+- 빌더 클래스를 생성 해야 한다는 리소스가 추가된다.(+ Director)
+- 기존 대비 구조가 좀 더 복잡해진다.
 
 ---
 ## 프로토타입(Prototype) 패턴
+![prototype.png](/assets/img/prototype.png)
+기존 인스턴스를 복제하여 새로운 인스턴스를 만드는 방법
+- 복제 기능을 갖추고 있는 기존 인스턴스를 프로토타입으로 사용해 새 인스턴스를 만들 수
+있다
+
+1. 복제 기능이 있는 추상메서드 clone
+2. 복제 기능을 구현할 세부 클래스
