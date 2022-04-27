@@ -1,6 +1,6 @@
 ---
 layout:  post
-title: Design pattern(structural 구조패턴)
+title: Design pattern(structural 구조적인 패턴)
 tags:
 - design_pattern
 ---
@@ -21,6 +21,48 @@ tags:
 
 ---
 ## 어댑터(Adapter) 패턴
+![adapter.png](/assets/img/pattern_adapter.png)
 기존 코드를 클라이언트가 사용하는 인터페이스의 구현체로 바꿔주는 패턴
-• 클라이언트가 사용하는 인터페이스를 따르지 않는 기존 코드를 재사용할 수 있게 해준다
-![adapter.png](/assets/img/adapter.png)
+- 클라이언트가 사용하는 인터페이스를 따르지 않는 기존 코드를 재사용할 수 있게 해준다
+
+클라이언트는 Target 인터페이스를 사용하고 있고, 새로운 객체들(Adaptee)을 사용하게 하기 위해 Adapter를 중간에 넣는다.
+
+1. Target 인터페이스를 구현한 Adapter 클래스를 생성한다.
+2. Adapter에서는 Adptee에 해당하는 클래스를 의존성 주입받고, 그 메서드를 사용한다.
+3. 클라이언트, Target, Adaptee는 소스 변경없이 새로운 Adaptee 객체를 사용할 수 있다.
+4. 만약 서드 파티 라이브러리가 아니라서 직접 Adaptee를 수정할 수 있다면  Adapter를 별도로 만들지 않고,
+직접 Adaptee에 Target 인터페이스를 구현하도록 할 수 있다.  
+-> 4번의 장점은 복잡도가 낮아진다는 것이고, 단점은 기존 소스를 수정해야한다는 것과 SRP(단일책임원칙)에 위배된 상태이다.
+(뭐가 더 좋다고 말하기는 애매하고, 상황 따라 유연하게 적용할 필요가 있다.)
+
+장점
+- 기존 코드(Adaptee)를 변경하지 않고 원하는 인터페이스 구현체를 만들어 재사용할 수 있다.(OCP)
+- 기존 코드가 하던 일과 특정 인터페이스 구현체로 변환하는 작업을 각기 다른 클래스로 분리하여 관리할 수 있다.(SRP)
+
+단점
+- 새 클래스가 생겨 복잡도가 증가할 수 있다.  
+-> 경우에 따라서는 기존 코드가 해당 인터페이스를 구현하도록 수정하는 것이 좋은 선택이 될 수도 있다
+
+
+---
+## 브릿지(Bridge) 패턴
+![bridge.png](/assets/img/pattern_bridge.png)
+어댑터 패턴은 상이한 두 인터페이스를 연결하는 것이였다면, 브릿지 패턴은 `추상적인 것과 구체적인 것`을 **분리하여 연결**하는 패턴이다.
+(추상적 vs 구체적, 동작 vs 상태, front vs back) -> 하나의 계층구조가 아닌 다른 계층으로 분리하고 이를 연결하는 패턴.
+
+Client -> Abstraction을 사용함
+
+Abstraction -> 상위 고차원의 추상적인 로직을 담고 있음
+
+Abstraction 구현체 -> 다양한 확장 가능 객체
+
+Implementation(interface) -> Abstraction이 사용함
+
+Concrete Implementation -> 구체적인 상태, 액션, 플랫폼에 특화된 로직
+
+다른 계층 구조를 건드리지 않고 확장 가능
+
+1. 클라이언트는 구현체를 직접 사용하지 않는다.
+2. 추상적인 계층 구조에서 간접적으로 사용한다.
+
+
