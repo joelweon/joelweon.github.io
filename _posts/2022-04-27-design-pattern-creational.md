@@ -1,12 +1,12 @@
 ---
 layout:  post
-title: Design pattern
+title: Design pattern(creational 생성패턴)
 tags:
 - design_pattern
 ---
 
 # 생성 패턴(creational patterns)
-> [wiki](https://en.wikipedia.org/wiki/Creational_pattern)
+> [Creational_pattern-WIKI](https://en.wikipedia.org/wiki/Creational_pattern)
 - 시스템이 사용하는 구체적인 클래스에 대한 지식을 캡슐화
 - 이러한 구체적인 클래스의 인스턴스가 생성되고 결합되는 방법을 숨기는 것입니다.
 
@@ -19,7 +19,7 @@ tags:
 4. [빌더 패턴](#빌더-패턴builder) 동일한 생성 프로세스가 다른 표현을 생성할 수 있도록 복잡한 객체의 생성을 표현과 분리하는 패턴
 5. [프로토타입 패턴](#프로토타입prototype-패턴) 프로토 타입 인스턴스를 사용하여 생성할 객체의 종류를 지정하고 이 프로토타입을 복제하여 새 객체를 생성하는 패턴
 
-
+---
 ## 싱글톤 패턴(Singleton)
 인스턴스를 하나만 생성해야할 경우 사용하는 패턴
 
@@ -248,3 +248,8 @@ Director를 사용한다면 중복되는 builder 스택을 Director에 숨겨놓
 - 동일한 객체를 만들어야하는데 객체간에 순환참조가 있는 경우 직접 구현해야하는 복잡도가 있다.
 
 
+---
+## 어댑터(Adapter) 패턴
+
+기존 코드를 클라이언트가 사용하는 인터페이스의 구현체로 바꿔주는 패턴
+• 클라이언트가 사용하는 인터페이스를 따르지 않는 기존 코드를 재사용할 수 있게 해준다
