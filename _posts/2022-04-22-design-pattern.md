@@ -215,10 +215,36 @@ Director를 사용한다면 중복되는 builder 스택을 Director에 숨겨놓
 ## 프로토타입(Prototype) 패턴
 ![prototype.png](/assets/img/prototype.png)
 기존 인스턴스를 복제하여 새로운 인스턴스를 만드는 방법
-- 복제 기능을 갖추고 있는 기존 인스턴스를 프로토타입으로 사용해 새 인스턴스를 만들 수
-있다
+- 복제 기능을 갖추고 있는 기존 인스턴스를 프로토타입으로 사용해 새 인스턴스를 만들 수 있다
 
-1. 복제 기능이 있는 추상메서드 clone
-2. 복제 기능을 제공할 클래스에서 구현
+```java
+    x.clone() != x;
+    // will be true, and that the expression:
 
-java가 제공하는 clone
+    x.clone().getClass() == x.getClass();
+    // will be true, but these are not absolute requirements. While it is typically the case that:
+
+    x.clone().equals(x);
+    // will be true, this is not an absolute requirement.
+```
+
+- ArrayList에서 제공하는 복사 : `new ArrayList<>(source);`
+- ModelMapper에서 제공하는 복사: `modelMapper.map(source, destinationType)`
+- java가 제공하는 clone 사용
+1. Cloneable 인터페이스를 구현(protected 접근지시자 때문)
+2. clone 메서드 오버라이딩
+3. 필요한 경우 clone 메서드에서 사용중인 다른 객체의 인스턴스 생성
+
+기본적으로 `shallow copy`를 지원하기 때문에 복사한 객체에서 사용하는 인스턴스들은 같은 객체를 사용한다.  
+만약 완벽히 독립된 clone(deep copy)을 원할 경우 오버라이딩한 clone 메서드에서 새로운 인스턴스를 생성해서 사용해야 한다.
+
+장점
+- 복잡한 객체를 만드는 과정을 숨길 수 있다.
+- 동일한 작업을 반복하지 않아도 된다.
+- DB, 네트워크를 사용하는 등 리소스를 많이 사용하는 작업인 경우 복제의 이점이 많다.
+- 추상적인 타입을 리턴할 수 있다.
+
+단점
+- 동일한 객체를 만들어야하는데 객체간에 순환참조가 있는 경우 직접 구현해야하는 복잡도가 있다.
+
+
