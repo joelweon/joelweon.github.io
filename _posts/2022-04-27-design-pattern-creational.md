@@ -144,7 +144,7 @@ public enum SingletonEnum {
 
 ---
 ## 팩토리 메서드 패턴(Factory method)
-![factory_method.png](/assets/img/pattern_factory_method.png)
+![pattern_factory_method.png](/assets/img/pattern_factory_method.png)
 어떤 객체(인스턴스)를 생성하는 것을 구체적인 클래스(concrete class)가 아닌 추상적인 인터페이스의 메서드로 감싸는 것
 
 1. factory 역할을 할 인터페이스 생성(Creator)
@@ -168,7 +168,7 @@ public enum SingletonEnum {
 
 ---
 ## 추상 팩토리(Abstract factory)
-![abstract_factory.png](/assets/img/pattern_abstract_factory.png)
+![pattern_abstract_factory.png](/assets/img/pattern_abstract_factory.png)
 팩토리를 추상화된 형태로 제공하는 것(인터페이스 or 추상클래스)  
 구체적인 팩토리에서 구체적인 인스턴스를 만드는 과정은 팩토리 메서드 패턴과 유사함.  
 그러나 초점이 팩토리를 사용하는 클라이언트에 맞춰져 있으면 추상 팩토리 메서드 패턴이다.
@@ -190,7 +190,7 @@ public enum SingletonEnum {
 
 ---
 ## 빌더 패턴(builder)
-![builder.png](/assets/img/pattern_builder.png)
+![pattern_builder.png](/assets/img/pattern_builder.png)
 동일한 프로세스를 거쳐 다양한 구성의 인스턴스를 만드는 방법
 
 Builder 인터페이스만 사용하여 빌더패턴을 구현할 수 있고, Director를 사용해서 구현할 수 있다.
@@ -213,7 +213,7 @@ Director를 사용한다면 중복되는 builder 스택을 Director에 숨겨놓
 
 ---
 ## 프로토타입(Prototype) 패턴
-![prototype.png](/assets/img/pattern_prototype.png)
+![pattern_prototype.png](/assets/img/pattern_prototype.png)
 기존 인스턴스를 복제하여 새로운 인스턴스를 만드는 방법
 - 복제 기능을 갖추고 있는 기존 인스턴스를 프로토타입으로 사용해 새 인스턴스를 만들 수 있다
 
