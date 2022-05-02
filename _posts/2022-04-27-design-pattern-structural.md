@@ -15,13 +15,14 @@ tags:
 2. [브리지 패턴](#브릿지bridge-패턴) 추상화를 구현에서 분리하여 두 가지가 독립적으로 변할 수 있도록 합니다.
 3. [컴포짓 패턴](#컴포짓composite-패턴) 모든 객체가 동일한 인터페이스를 갖는 객체의 트리 구조
 4. [데코레이터 패턴](#데코레이터decorator-패턴) 서브클래싱으로 인해 새 클래스가 기하급수적으로 증가하는 런타임 시 개체에 추가 기능 추가
-5. [퍼사드 패턴]() 기존 인터페이스의 단순화된 인터페이스를 생성하여 일반적인 작업에 쉽게 사용할 수 있습니다.
-6. [플라이웨이트 패턴]() 많은 양의 객체가 공간을 절약하기 위해 공통 속성 객체를 공유합니다.
-7. [프록시 패턴]() 다른 것에 대한 인터페이스 역할을 하는 클래스
+5. [퍼사드 패턴](#퍼사드facade-패턴) 기존 인터페이스의 단순화된 인터페이스를 생성하여 일반적인 작업에 쉽게 사용할 수 있습니다.
+6. [플라이웨이트 패턴](#플라이웨이트flyweight-패턴) 많은 양의 객체가 공간을 절약하기 위해 공통 속성 객체를 공유합니다.
+7. [프록시 패턴](#프록시proxy-패턴) 다른 것에 대한 인터페이스 역할을 하는 클래스
 
 ---
 ## 어댑터(Adapter) 패턴
 ![pattern_adapter.png](/assets/img/pattern_adapter.png)
+![pattern_adapter_example.png](/assets/img/pattern_adapter_example.png)
 기존 코드를 클라이언트가 사용하는 인터페이스의 구현체로 바꿔주는 패턴
 - 클라이언트가 사용하는 인터페이스를 따르지 않는 기존 코드를 재사용할 수 있게 해준다
 
@@ -47,6 +48,7 @@ tags:
 ---
 ## 브릿지(Bridge) 패턴
 ![pattern_bridge.png](/assets/img/pattern_bridge.png)
+![pattern_bridge_example.png](/assets/img/pattern_bridge_example.png)
 어댑터 패턴이 상이한 두 인터페이스를 연결하는 것이였다면, 브릿지 패턴은 `추상적인 것과 구체적인 것`을 **분리하여 연결**하는 패턴이다.  
 (기능계층 vs 구현계층, 추상적 vs 구체적, 동작 vs 상태, front vs back) -> 하나의 계층구조가 아닌 다른 계층으로 분리하고 이를 연결하는 패턴.
 
@@ -96,6 +98,7 @@ TO-BE) SRP, OCP 원칙 적용됨
 ---
 ## 컴포짓(Composite) 패턴
 ![pattern_composite.png](/assets/img/pattern_composite.png)
+![pattern_composite_example.png](/assets/img/pattern_composite_example.png)
 그룹 전체와 개별 객체를 동일하게 처리할 수 있는 패턴.
 - 클라이언트 입장에서는 ‘전체’나 ‘부분’이나 모두 동일한 컴포넌트로 인식할 수 있게 하는 것. (Part-Whole Hierarchy)
 - 클라이언트는 동일한 인터페이스를 사용하고, 어떤 객체인지는 상관 없다.
@@ -118,6 +121,73 @@ TO-BE) SRP, OCP 원칙 적용됨
 ---
 ## 데코레이터(Decorator) 패턴
 ![pattern_decorator.png](/assets/img/pattern_decorator.png)
-기존 코드를 변경하지 않고 부가 기능을 추가하는 패턴
-- 상속이 아닌 위임을 사용해서 보다 유연하게(런타임에) 부가 기능을 추가하는 것도 가능하
-다
+![pattern_decorator_example.png](/assets/img/pattern_decorator_example.png)
+기존 코드를 변경하지 않고 부가 기능을 추가하는 구조적인 패턴
+- 상속이 아닌 위임을 사용해서 런타임에 동적으로 부가 기능을 추가하는 것도 가능하다(static, compile 때가 아닌)
+- 컴포짓 패턴과 유사하게 Component의 역할을 하는 인터페이스가 있고, ConcreteComponent, Decorator 둘 다 같은 기능의 operation을 구현하고 있다.
+- 컴포짓과의 차이점은 여러개의 데코레이터를 갖는 컴포짓과 달리 데코레이터 패턴은 하나만 갖는다.
+- 데코레이터는 딱 하나의 Component 타입으로 ConcreteDecorator를 감싼다.(wrapper) 
+
+1. 공통된 operation을 갖는 Component 인터페이스를 정의한다.
+2. Component 인터페이스를 구현하여 ConcreteComponent 에서 구체적인 일을 한다.
+3. 세부 작업들을 추상화시킨 Decorator를 정의한다.
+4. 만든 Decorator 안에서 Component를 참조하고, operation을 정의한다.
+5. ConcreteDecorator는 Decorator를 상속하여 구체적인 로직을 처리한다.
+   (Compoenet 타입으로  감싼다.)
+```java
+// 상속으로 해결하는 것이 아닌 데코레이터가 데코레리터를 감싸며 해결
+CommentService commentService = new DefaultCommentService();
+if (enabledSpamFilter) {
+  commentService = new SpamFilteringCommentDecorator(commentService);
+}
+if (enabledTrimming) {
+  commentService = new TrimmingCommentDecorator(commentService);
+}
+```
+
+장점
+- 새로운 클래스를 만들지 않고 기존 기능을 **조합**할 수 있다. (OCP & SRP)
+- 컴파일 타임이 아닌 **런타임에 동적**으로 기능을 변경할 수 있다. (구체적인 클래스가 아닌 인터페이스를 사용하여 역전시키는 DIP)
+
+단점
+- 데코레이터를 조합하는 코드가 복잡할 수 있다.
+
+
+---
+## 퍼사드(Facade) 패턴
+![pattern_facade.png](assets/img/pattern_facade.png)
+![pattern_facade_example.png](assets/img/pattern_facade_example.png)
+복잡한 서브 시스템 의존성을 최소화하는 방법.(loosely coupled)
+- 클라이언트가 사용해야 하는 복잡한 서브 시스템 의존성을 간단한 인터페이스로 추상화 할 수 있다.
+  (클라이언트는 라이브러리, 프레임워크를 알지 못하는 상태로 중간에 있는 Facade의 특정한 operation만 사용하도록 한다.)
+
+장점
+- 서브 시스템에 대한 의존성을 한 곳으로 모을 수 있다.
+- client가 여럿일 경우 퍼사드를 재사용할 수 있다.
+- Mockup을 하기가 더 쉽다.
+- 퍼사드도 상위 인터페이스와 하위 default 클래스로 분리하여 더 유연하게 구현 가능하다.
+
+단점
+- 퍼사드 클래스가 서브 시스템에 대한 모든 의존성을 가지게 된다(의존성을 피할 순 없다.)
+
+
+---
+## 플라이웨이트(Flyweight) 패턴
+![pattern_flyweight.png](assets/img/pattern_flyweight.png)
+![pattern_flyweight_example.png](assets/img/pattern_flyweight_example.png)
+객체를 가볍게 만들어 메모리 사용을 줄이는 패턴.
+- 자주 변하는 속성(또는 외적인 속성, extrinsit)과 변하지 않는 속성(또는 내적인 속성, intrinsit)을 분리하고
+재사용하여 메모리 사용을 줄일 수 있다.
+
+
+---
+## 프록시(Proxy) 패턴
+![pattern_proxy.png](assets/img/pattern_proxy.png)
+![pattern_proxy_example.png](assets/img/pattern_proxy_example.png)
+특정 객체에 대한 접근을 제어하거나 기능을 추가할 수 있는 패턴.
+- 초기화 지연, 접근 제어, 로깅, 캐싱 등 다양하게 응용해 사용 할 수 있다.
+
+
+
+
+
