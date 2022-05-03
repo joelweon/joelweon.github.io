@@ -5,9 +5,9 @@ tags:
 - design_pattern
 ---
 
-> 1. [Design pattern(creational 생성패턴)](https://joelweon.github.io/2022/04/27/design-pattern-creational.html)
-2. [Design pattern(structural 구조적인 패턴)](https://joelweon.github.io/2022/04/27/design-pattern-creational.html)
-3. [Design pattern(behavioral 행동 패턴)](https://joelweon.github.io/2022/04/27/design-pattern-behavioral.html)
+> 1. [Design pattern(creational 생성 패턴)](/2022/04/27/design-pattern-creational.html)
+> 2. **[Design pattern(structural 구조적인 패턴)](/2022/04/27/design-pattern-creational.html)**
+> 3. [Design pattern(behavioral 행동 패턴)](/2022/04/27/design-pattern-behavioral.html)
 
 
 # 구조 패턴(structural patterns)
