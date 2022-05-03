@@ -6,7 +6,7 @@ tags:
 ---
 
 > 1. [Design pattern(creational 생성 패턴)](/2022/04/27/design-pattern-creational.html)
-> 2. **[Design pattern(structural 구조적인 패턴)](/2022/04/27/design-pattern-creational.html)**
+> 2. **[Design pattern(structural 구조적인 패턴)](/2022/04/27/design-pattern-structural.html)**
 > 3. [Design pattern(behavioral 행동 패턴)](/2022/04/27/design-pattern-behavioral.html)
 
 
