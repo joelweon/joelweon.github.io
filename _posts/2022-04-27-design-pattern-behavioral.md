@@ -113,3 +113,5 @@ tags:
 ![pattern_visitor.png](/assets/img/pattern_visitor.png)
 기존 코드를 변경하지 않고 새로운 기능을 추가하는 방법.
 - 더블 디스패치 (Double Dispatch)를 활용할 수 있다
+
+> 참고: [코딩으로 학습하는 GoF의 디자인 패턴](https://www.inflearn.com/course/%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4#curriculum)

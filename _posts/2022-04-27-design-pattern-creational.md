@@ -1,4 +1,4 @@
----
+~~---
 layout:  post
 title: Design pattern(creational 생성 패턴)
 tags:
@@ -259,3 +259,7 @@ Director를 사용한다면 중복되는 builder 스택을 Director에 숨겨놓
 
 단점
 - 동일한 객체를 만들어야하는데 객체간에 순환참조가 있는 경우 직접 구현해야하는 복잡도가 있다.
+
+
+
+> 참고: [코딩으로 학습하는 GoF의 디자인 패턴](https://www.inflearn.com/course/%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4#curriculum)~~
