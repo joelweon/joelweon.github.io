@@ -5,6 +5,11 @@ tags:
 - design_pattern
 ---
 
+> 1. [Design pattern(creational 생성패턴)](https://joelweon.github.io/2022/04/27/design-pattern-creational.html)
+2. [Design pattern(structural 구조적인 패턴)](https://joelweon.github.io/2022/04/27/design-pattern-creational.html)
+3. [Design pattern(behavioral 행동 패턴)](https://joelweon.github.io/2022/04/27/design-pattern-behavioral.html)
+
+
 # 구조 패턴(structural patterns)
 > [Structural_pattern-WIKI](https://en.wikipedia.org/wiki/Structural_pattern)
 
@@ -155,8 +160,8 @@ if (enabledTrimming) {
 
 ---
 ## 퍼사드(Facade) 패턴
-![pattern_facade.png](assets/img/pattern_facade.png)
-![pattern_facade_example.png](assets/img/pattern_facade_example.png)
+![pattern_facade.png](/assets/img/pattern_facade.png)
+![pattern_facade_example.png](/assets/img/pattern_facade_example.png)
 복잡한 서브 시스템 의존성을 최소화하는 방법.(loosely coupled)
 - 클라이언트가 사용해야 하는 복잡한 서브 시스템 의존성을 간단한 인터페이스로 추상화 할 수 있다.
   (클라이언트는 라이브러리, 프레임워크를 알지 못하는 상태로 중간에 있는 Facade의 특정한 operation만 사용하도록 한다.)
@@ -173,8 +178,8 @@ if (enabledTrimming) {
 
 ---
 ## 플라이웨이트(Flyweight) 패턴
-![pattern_flyweight.png](assets/img/pattern_flyweight.png)
-![pattern_flyweight_example.png](assets/img/pattern_flyweight_example.png)
+![pattern_flyweight.png](/assets/img/pattern_flyweight.png)
+![pattern_flyweight_example.png](/assets/img/pattern_flyweight_example.png)
 객체를 가볍게 만들어 메모리 사용을 줄이는 패턴.
 - 자주 변하는 속성(또는 외적인 속성, extrinsit)과 변하지 않는 속성(또는 내적인 속성, intrinsit)을 분리하고
 재사용하여 메모리 사용을 줄일 수 있다.
@@ -182,8 +187,8 @@ if (enabledTrimming) {
 
 ---
 ## 프록시(Proxy) 패턴
-![pattern_proxy.png](assets/img/pattern_proxy.png)
-![pattern_proxy_example.png](assets/img/pattern_proxy_example.png)
+![pattern_proxy.png](/assets/img/pattern_proxy.png)
+![pattern_proxy_example.png](/assets/img/pattern_proxy_example.png)
 특정 객체에 대한 접근을 제어하거나 기능을 추가할 수 있는 패턴.
 - 초기화 지연, 접근 제어, 로깅, 캐싱 등 다양하게 응용해 사용 할 수 있다.
 

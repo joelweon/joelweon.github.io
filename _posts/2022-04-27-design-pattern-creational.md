@@ -5,6 +5,10 @@ tags:
 - design_pattern
 ---
 
+> 1. [Design pattern(creational 생성패턴)](https://joelweon.github.io/2022/04/27/design-pattern-creational.html)
+> 2. [Design pattern(structural 구조적인 패턴)](https://joelweon.github.io/2022/04/27/design-pattern-creational.html)
+> 3. [Design pattern(behavioral 행동 패턴)](https://joelweon.github.io/2022/04/27/design-pattern-behavioral.html)
+
 # 생성 패턴(creational patterns)
 > [Creational_pattern-WIKI](https://en.wikipedia.org/wiki/Creational_pattern)
 - 시스템이 사용하는 구체적인 클래스에 대한 지식을 캡슐화
@@ -145,7 +149,7 @@ public enum SingletonEnum {
 ---
 ## 팩토리 메서드 패턴(Factory method)
 ![pattern_factory_method.png](/assets/img/pattern_factory_method.png)
-![pattern_factory_method_example.png](/assets/img/pattern_factory_method_example.png.png)
+![pattern_factory_method_example.png](/assets/img/pattern_factory_method_example.png)
 어떤 객체(인스턴스)를 생성하는 것을 구체적인 클래스(concrete class)가 아닌 추상적인 인터페이스의 메서드로 감싸는 것
 
 1. factory 역할을 할 인터페이스 생성(Creator)
