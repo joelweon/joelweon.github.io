@@ -1,4 +1,4 @@
-~~---
+---
 layout:  post
 title: Design pattern(creational 생성 패턴)
 tags:
