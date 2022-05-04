@@ -160,6 +160,7 @@ if (enabledTrimming) {
 
 ---
 ## 퍼사드(Facade) 패턴
+Facade: 건물의 정면, 외관 -> client는 보이는 외관만 사용한다.
 ![pattern_facade.png](/assets/img/pattern_facade.png)
 ![pattern_facade_example.png](/assets/img/pattern_facade_example.png)
 복잡한 서브 시스템 의존성을 최소화하는 방법.(loosely coupled)
@@ -181,9 +182,16 @@ if (enabledTrimming) {
 ![pattern_flyweight.png](/assets/img/pattern_flyweight.png)
 ![pattern_flyweight_example.png](/assets/img/pattern_flyweight_example.png)
 객체를 가볍게 만들어 메모리 사용을 줄이는 패턴.
-- 자주 변하는 속성(또는 외적인 속성, extrinsit)과 변하지 않는 속성(또는 내적인 속성, intrinsit)을 분리하고
-재사용하여 메모리 사용을 줄일 수 있다.
+- 자주 변하는 속성(또는 외적인 속성, extrinsic)과 변하지 않는 속성(또는 내적인 속성, intrinsic)을 분리하고 재사용하여 메모리 사용을 줄일 수 있다.
+- 많은 인스턴스를 만들어 사용할 때 사용하는 패턴
+- 공통되는 부분을 따로 모아 재사용(자주 변하는 속성 vs 변하지 않는 속성 - 분리)
 
+장점
+- 애플리케이션에서 사용하는 메모리를 줄일 수 있다.
+- 각각의 인스턴스가 중복되는 값을 갖고 있지 않다(중복 제거)
+
+단점
+- 코드의 복잡도가 증가한다
 
 ---
 ## 프록시(Proxy) 패턴
@@ -191,8 +199,20 @@ if (enabledTrimming) {
 ![pattern_proxy_example.png](/assets/img/pattern_proxy_example.png)
 특정 객체에 대한 접근을 제어하거나 기능을 추가할 수 있는 패턴.
 - 초기화 지연, 접근 제어, 로깅, 캐싱 등 다양하게 응용해 사용 할 수 있다.
+- 상속을 통한 proxy 구현도 가능하지만 interface 기반으로 구현하는 것이 더 유연하다.
 
+1. 기존에 사용하던 클래스는 RealSubject가 되고, 상위 인터페이스 Subject를 생성한다.
+2. Proxy 객체를 생성하고, Subject 타입을 주입받고, operation() 메서드를 overriding 한다.
+3. operation()을 실행하기 전 후에 필요한 로직을 넣는다.
+4. client는 Subject 인터페이스를 사용한다.
 
+장점
+- 기존 코드를 변경하지 않고 새로운 기능을 추가할 수 있다. (OCP)
+- 기존 코드가 해야 하는 일만 유지할 수 있다. (SRP)
+- 기능 추가 및 초기화 지연(RealSubject가 사용될 때 proxy에서 생성) 등으로 다양하게 활용할 수 있다.
+
+단점
+- 코드의 복잡도가 증가한다
 
 
 
