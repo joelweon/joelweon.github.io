@@ -14,13 +14,14 @@ tags:
 > [Behavioral_pattern-WIKI](https://en.wikipedia.org/wiki/Behavioral_pattern)
 
 소프트웨어 엔지니어링에서 행동 디자인 패턴은 객체 간의 일반적인 통신 패턴을 식별하는 디자인 패턴 입니다.
-그렇게 함으로써, 이러한 패턴은 의사소통을 수행할 때 유연성을 증가시킵니다.
+그렇게 함으로써, 이러한 패턴은 의사소통을 수행할 때 유연성을 증가시킵니다.  
+주로 책임을 분산하고 의존성 decoupling 하여 구조 개선
 
 
 1. [책임 연쇄 패턴](#책임-연쇄-패턴chain-of-responsibility-패턴) 명령 개체는 논리를 포함하는 처리 개체에 의해 처리되거나 다른 개체에 전달됩니다.
 2. [커맨드 패턴](#커맨드command-패턴) 명령 개체는 작업 및 해당 매개변수를 캡슐화합니다.
 3. [인터프리터 패턴](#인터프리터interpreter-패턴) 특정 문제 집합을 신속하게 해결하기 위해 특수 컴퓨터 언어를 구현합니다.
-4. [이터레이터 패턴](#이터레이터interator-패턴) 반복자는 기본 표현을 노출하지 않고 집계 개체의 요소에 순차적으로 액세스하는 데 사용됩니다.
+4. [이터레이터 패턴](#이터레이터iterator-패턴) 반복자는 기본 표현을 노출하지 않고 집계 개체의 요소에 순차적으로 액세스하는 데 사용됩니다.
 5. [중재자 패턴](#중재자mediator-패턴) 하위 시스템의 인터페이스 집합에 대한 통합 인터페이스를 제공합니다.
 6. [메멘토 패턴](#메멘토memento-패턴) 객체를 이전 상태로 복원(롤백)하는 기능 제공
 7. [옵저버 패턴](#옵저버observer-패턴) 발행/구독 또는 이벤트 리스너라고도 합니다. 객체는 다른 객체에 의해 발생할 수 있는 이벤트를 관찰하기 위해 등록됩니다.
@@ -36,7 +37,22 @@ tags:
 ![pattern_chain_of_responsibility_example.png](/assets/img/pattern_chain_of_responsibility_example.png)
 요청을 보내는 쪽(sender)과 요청을 처리하는 쪽(receiver)의 분리하는 패턴
 - 핸들러 체인을 사용해서 요청을 처리한다.
+- 클라이언트가 구체적인 핸들러를 선택해서 사용하지 않고, 모른 상태로 추상 클래스 핸들러만 사용한다. 
 
+장점
+- 클라이언트 코드를 변경하지 않고 새로운 핸들러를 체인에 추가할 수 있다.
+- 각각의 체인은 자신이 해야하는 일만 한다.
+- 체인을 다양한 방법으로 구성할 수 있다. (전, 후처리 등)
+
+단점
+- 디버깅이 조금 어렵다.(흐름이 많아 번거로움)
+
+자바
+- 서블릿 필터
+
+스프링
+- 스프링 시큐리티 필터
+![servlet_security_filter.png](/assets/img/servlet_security_filter.png)
 
 ---
 ## 커맨드(Command) 패턴
@@ -44,6 +60,15 @@ tags:
 ![pattern_command_example.png](/assets/img/pattern_command_example.png)
 요청을 캡슐화 하여 호출자(invoker)와 수신자(receiver)를 분리하는 패턴.
 - 요청을 처리하는 방법이 바뀌더라도, 호출자의 코드는 변경되지 않는다.
+(커맨드는 리시버를 구체적으로 알고 있어야하는 클래스라 커맨드 클래스는 바뀌어야 한다.)
+
+장점
+- 기존 코드를 변경하지 않고 새로운 커맨드를 만들 수 있다. (OCP)
+- 수신자의 코드가 변경되어도 호출자의 코드는 변경되지 않는다.
+- 커맨드 객체를 로깅, DB에 저장, 네트워크로 전송 하는 등 다양한 방법으로 활용할 수도 있다.
+
+단점
+- 코드가 복잡하고 클래스가 많아진다
 
 ---
 ## 인터프리터(Interpreter) 패턴
@@ -51,13 +76,39 @@ tags:
 ![pattern_interpreter_example.png](/assets/img/pattern_interpreter_example.png)
 자주 등장하는 문제를 간단한 언어로 정의하고 재사용하는 패턴.
 - 반복되는 문제 패턴을 언어 또는 문법으로 정의하고 확장할 수 있다
+- Expression 트리 구조는 컴포짓 패턴과 유사
+
+- Context: 모든 Expression에서 사용하는 공통된 정보가 있는 곳(global한 값)
+- Expression: Context를 참조하여 실제 표현하는 문법을 나타내는 것
+- TerminalExpression: 그 자체로 종료되는 expression
+- NonTerminalExpression: 다른 expression들을 참조하는 expression(재규적으로)
+
+장점
+- 자주 등장하는 문제 패턴을 언어와 문법으로 정의할 수 있다.
+- 기존 코드를 변경하지 않고 새로운 Expression을 추가할 수 있다.
+
+단점
+- 복잡한 문법을 표현하려면 Expression과 Parser가 복잡해진다
+
+=> 구현에 드는 비용, 패턴을 적용할 만큼 자주 쓸 정도의 문제인가 고민해 봐야 함(ROI-Return On Investment)
+
 
 ---
-## 이터레이터(Interator) 패턴
+## 이터레이터(Iterator) 패턴
 ![pattern_iterator.png](/assets/img/pattern_iterator.png)
 ![pattern_iterator_example.png](/assets/img/pattern_iterator_example.png)
 집합 객체 내부 구조를 노출시키지 않고 순회 하는 방법을 제공하는 패턴.
 - 집합 객체를 순회하는 클라이언트 코드를 변경하지 않고 다양한 순회 방법을 제공할 수 있다.
+
+장점
+- 집합 객체가 가지고 있는 객체들에 손쉽게 접근할 수 있다.
+  - Client는 집합 객체가 제공하는 Iterator만 알면 되고, 집합 객체 내부(ConcreteAggregate)는 몰라도 된다.
+- 일관된 인터페이스를 사용해 여러 형태의 집합 구조를 순회할 수 있다.
+- 집합 객체가 변경되어도 Client에서는 숨겨져 있기 때문에 유연하다.
+
+단점
+- 클래스가 늘어나고 복잡도가 증가한다
+
 
 ---
 ## 중재자(Mediator) 패턴
