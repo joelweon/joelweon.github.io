@@ -117,12 +117,26 @@ tags:
 여러 객체들이 소통하는 방법을 캡슐화하는 패턴.
 - 여러 컴포넌트간의 결합도를 중재자를 통해 낮출 수 있다
 
+장점
+- 컴포넌트 코드를 변경하지 않고 새로운 중재자를 만들어 사용할 수 있다.
+- 각각의 컴포넌트 코드를 보다 간결하게 유지할 수 있다.
+
+단점
+- 중재자 역할을 하는 클래스의 복잡도와 결합도가 증가한다
 ---
 ## 메멘토(Memento) 패턴
 ![pattern_memento.png](/assets/img/pattern_memento.png)
 ![pattern_memento_example.png](/assets/img/pattern_memento_example.png)
 캡슐화를 유지하면서 객체 내부 상태를 외부에 저장하는 방법.
 - 객체 상태를 외부에 저장했다가 해당 상태로 다시 복구할 수 있다
+
+장점
+- 캡슐화를 지키면서 상태 객체 상태 스냅샷을 만들 수 있다.
+- 객체 상태 저장하고 또는 복원하는 역할을 CareTaker에게 위임할 수 있다.
+- 객체 상태가 바뀌어도 클라이언트 코드는 변경되지 않는다.
+
+단점
+- 많은 정보를 저장하는 Memento를 자주 생성하는 경우 메모리 사용량에 많은 영향을 줄 수 있다
 
 ---
 ## 옵저버(Observer) 패턴
@@ -131,12 +145,22 @@ tags:
 다수의 객체가 특정 객체 상태 변화를 감지하고 알림을 받는 패턴.
 - 발행(publish)-구독(subscribe) 패턴을 구현할 수 있다
 
+장점
+- 상태를 변경하는 객체(publisher)와 변경을 감지하는 객체(subscriber)의 관계를 느슨하게 유지할 수 있다.
+- Subject의 상태 변경을 주기적으로 조회하지 않고 자동으로 감지할 수 있다.
+- 런타임에 옵저버를 추가하거나 제거할 수 있다.
+
+단점
+- 복잡도가 증가한다.
+- 다수의 Observer 객체를 등록 후 해지 하지 않으면 memory leak이 발생할 수도 있다
+
 ---
 ## 상태(State) 패턴
 ![pattern_state.png](/assets/img/pattern_state.png)
 ![pattern_state_example.png](/assets/img/pattern_state_example.png)
 객체 내부 상태 변경에 따라 객체의 행동이 달라지는 패턴.
 - 상태에 특화된 행동들을 분리해 낼 수 있으며, 새로운 행동을 추가하더라도 다른 행동에 영향을 주지 않는다
+
 
 ---
 ## 전략(Strategy) 패턴
