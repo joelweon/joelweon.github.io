@@ -1,6 +1,6 @@
 ---
 layout:  post
-title: JavaScript Core
+title: JavaScript Core(작성중)
 tags:
 - execution context
 - javascript
