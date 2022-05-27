@@ -1,8 +1,9 @@
 ---
 layout:  post
-title: Design pattern(creational 생성 패턴)
+title: Design pattern(creational 생성 패턴) with Java
 tags:
 - design_pattern
+- java
 ---
 
 > 1. **[Design pattern(creational 생성 패턴)](/2022/04/27/design-pattern-creational.html)**
