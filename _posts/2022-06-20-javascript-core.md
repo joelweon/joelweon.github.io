@@ -1,15 +1,12 @@
 ---
 layout:  post
-title: javascript (var, lexical, closure)
+title: JavaScript Core(작성중)
 tags:
+- execution context
 - javascript
-- var
-- lexical
-- closure
 ---
 
-
-## var let
+## var vs let
 
 ### 1. 변수 생성
 - 선언 단계(Declaration phase): 변수 객체(Variable Object)에 등록한다. 이 변수 객체는 스코프에서 참조 가능하다.
@@ -30,7 +27,7 @@ tags:
 
 ### 3. var 변수는 할당하기 전에 사용이 가능하다.
 - 자바스크립트 엔진이 코드를 로드할 때 `실행 컨텍스트`를 생성하고, 그 안에 선언된 변수, 함수를 `실행 컨텍스트 최상단`으로 올린다. 이것이 `호이스팅`이다.
-다시 말해 함수 실행이 시작 될 때 끌어 올려져(hoisted:끌어올리다) 처리되는 것이 호이스팅이다.
+  다시 말해 함수 실행이 시작 될 때 끌어 올려져(hoisted:끌어올리다) 처리되는 것이 호이스팅이다.
 - var의 선언은 호이스팅 되지만, 할당은 실행 흐름이 해당 코드에 도달할 때 처리된다.
 - 처음 실행 컨텍스트 때는 undefined로 정의 된다. (let, const는 오류 발생 - `Cannot access '변수명' before initialization`)
 
@@ -46,6 +43,11 @@ function sayHi() {
 }
 sayHi();
 ```
+
+## 실행 컨택스트(Execution Context)
+- 코드의 실제 진행 상황을 추적하는데 필요한 정보들을 모아둔 구조
+- 함수 실행에 대한 세부 정보를 담고 있는 내부 데이터 구조
+- 제어 흐름의 현재 위치, 변수의 현재 값, this의 값 등 상세 내부 정보가 실행 컨텍스트에 저장됩니다.
 
 
 ## 렉시컬 환경(Lexical Environment)
@@ -66,10 +68,10 @@ sayHi();
 ### - 변수
 ![lexical_variable.png](/assets/img/lexical_variable.png)
 
-우측의 네모 상자들은 코드가 한 줄, 한 줄 실행될 때마다 전역 렉시컬 환경이 어떻게 변화하는지 보여줍니다.  
-1. 스크립트가 시작되면 스크립트 내에서 선언한 변수 전체가 렉시컬 환경에 올라갑니다(pre-populated).  
+우측의 네모 상자들은 코드가 한 줄, 한 줄 실행될 때마다 전역 렉시컬 환경이 어떻게 변화하는지 보여줍니다.
+1. 스크립트가 시작되면 스크립트 내에서 선언한 변수 전체가 렉시컬 환경에 올라갑니다(pre-populated).
 - 이때 변수의 상태는 특수 내부 상태(special internal state)인 `uninitialized`가 됩니다.
-자바스크립트 엔진은 `uninitialized` 상태의 변수를 인지하긴 하지만, `let`을 만나기 전까진 이 변수를 참조할 수 없습니다.
+  자바스크립트 엔진은 `uninitialized` 상태의 변수를 인지하긴 하지만, `let`을 만나기 전까진 이 변수를 참조할 수 없습니다.
 2. `let phrase`가 나타났네요. 아직 값을 할당하기 전이기 때문에 프로퍼티 값은 `undefined`입니다. `phrase`는 이 시점 이후부터 사용할 수 있습니다.
 3. `phrase`에 값이 할당되었습니다.
 4. `phrase`의 값이 변경되었습니다.
@@ -99,8 +101,8 @@ sayHi();
 - `[[Environment]]`는 함수가 생성될 때 딱 한 번 값이 세팅되고, 영원히 변하지 않는다.
 - 함수가 자신이 태어난 곳을 기억하는 것은 `[[Environment]]` 프로퍼티 덕분이다.
 - `count` 변수에 대한 참조
-  - 먼저 익명함수 내부인 자체 렉시컬 환경에서 찾고(이미지에서 익명 내부의 렉시컬 환경은 empty이다-지역변수도 없음)
-  - 없으면 outer(외부 렉시컬 환경)에서 찾아본다.
+    - 먼저 익명함수 내부인 자체 렉시컬 환경에서 찾고(이미지에서 익명 내부의 렉시컬 환경은 empty이다-지역변수도 없음)
+    - 없으면 outer(외부 렉시컬 환경)에서 찾아본다.
 
 
 ## 클로저(closure)
@@ -127,19 +129,51 @@ sayHi();
 - 없다면, 내부 렉시컬이 참조하는 외부 렉시컬 환경에서 검색한다.(스코프 체인)
 - 외부 렉시컬 환경이 null일 때까지 반복하고 없으면 에러 발생
 
-렉시컬 스코프  
+렉시컬 스코프
 - 어디서 호출했는지가 아닌 어디서 정의했는지에 따라 함수의 상위 스코프를 결정하는 것
 - 정적 스코프 = 렉시컬 스코프
 
 렉시컬 환경의 "외부렉시컬 환경에 대한 참조"에 저장할 참조값, 즉 상위 스코프에 대한
 참조는 함수정의가 평가되는 시점에 함수가 정의된 환경에 의해 결정된다
 
-이것이 바로 렉시컬스코프다
+## 자바스크립트 엔진
+- 콜 스택과 힙(heap)으로 구성된다.
+- 실행 컨텍스트는 힙 메모리에 저장된 객체를 참조한다.
+- 객체는 원시 값과는 달리 크기가 정해져 있지 않으므로 할당해야 할 메모리 공간의 크기를 런타임에 결정(동적 할당)해야 한다.
+- 따라서 객체가 저장되는 메모리 공간인 힙은 구조화되어 있지 않다는 특징이 있다.
+
+## 브라우저 측 실행 흐름
+### 매크로태스크 큐(=태스크큐(흔히 말하는 큐), 이벤트큐, 콜백큐)
+- 비동기 함수의 콜백 함수나 이벤트 핸들러가 일시적으로 보관되는 영역이다.
+- 엔진이 특정 태스크를 처리하는 동안엔 렌더링이 일어나지 않는다.
+### 마이크로태스크 큐(=PromiseJobs, 잡큐-ES6)
+- Promise 후 처리 메서드의 콜백 함수가 일시적으로 보관되는 영역이다.
+- 태스크 큐보다 우선순위가 높다.
+- 프라미스(`.then/catch/finally`) 핸들링은 항상 비동기로 처리된다.
+### 이벤트 루프
+- 콜스택에 실행 중인 실행 컨택스트가 있는지 확인
+- 태스크 큐에 대기 중인 함수가 있는지 확인
+- 콜스택이 비어 있으면 태스크 큐에 대기 중인 함수를 콜스택으로 옮겨서 실행
+
+동기적으로 로직 수행  
+-> 비동기 함수 만나면   
+-> 브라우저로 위임 후(웹 API) 비동기 함수는 콜스택에서 pop
+-> 동기함수 계속 실행 + 브라우저 작업 끝나면 태스크큐로 콜백함수 enqueue (둘은 병렬 처리)  
+-> 동기함수 끝나면 태스크큐에 있던 콜백함수 콜스택으로 push 후 실행
+
+#### `queueMicrotask`  
+직접 만든 함수를 현재 코드 실행이 끝난 후,
+새로운 이벤트 핸들러가 처리되기 전이면서 렌더링이 실행되기 전에
+비동기적으로 실행해야 하는 경우에는 `queueMicrotask`를 사용해 커스텀 함수를 스케줄링할 수 있다.
 
 
 
 ---
+> [event loop - spec](https://html.spec.whatwg.org/multipage/webappapis.html#event-loop-processing-model)
+> [실행 컨텍스트와 스택](https://ko.javascript.info/recursion#ref-810)
+> [NHN FORWARD 2021-YOUTUBE](https://www.youtube.com/watch?v=HoqMPUkzMSA)
 > [자바스크립트는-왜-프로토타입을-선택했을까](https://medium.com/@limsungmook/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%8A%94-%EC%99%9C-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85%EC%9D%84-%EC%84%A0%ED%83%9D%ED%96%88%EC%9D%84%EA%B9%8C-997f985adb42)  
 > [오래된 'var'](https://ko.javascript.info/var)  
 > [렉시컬 환경](https://ko.javascript.info/closure#ref-501)  
 > [변수-호이스팅](https://poiemaweb.com/js-data-type-variable#24-%EB%B3%80%EC%88%98-%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85variable-hoisting)
+> [JS-핸드북](https://github.com/junh0328/prepare_frontend_interview/blob/main/js.md)
