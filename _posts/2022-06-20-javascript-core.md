@@ -177,3 +177,4 @@ sayHi();
 > [렉시컬 환경](https://ko.javascript.info/closure#ref-501)  
 > [변수-호이스팅](https://poiemaweb.com/js-data-type-variable#24-%EB%B3%80%EC%88%98-%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85variable-hoisting)
 > [JS-핸드북](https://github.com/junh0328/prepare_frontend_interview/blob/main/js.md)
+> [이벤트루프-매크로/마이크로태스트](https://ko.javascript.info/event-loop)
