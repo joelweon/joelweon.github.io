@@ -4,6 +4,11 @@ title: JavaScript Core(작성중)
 tags:
 - execution context
 - javascript
+- lexical environment
+- closure
+- call stack
+- scope
+- event loop
 ---
 
 ## var vs let
