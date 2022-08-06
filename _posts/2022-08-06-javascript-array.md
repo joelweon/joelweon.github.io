@@ -17,7 +17,7 @@ tags:
 - `Array.prototype.map` - 함수 호출 결과를 반환
 - `Array.prototype.slice` - 어떤 배열의 begin부터 end까지(end 미포함)에 대한 얕은 복사본을 새로운 배열 객체로 반환
 - `Array.prototype.some` - 하나라도 조건 통과하면 true. boolean 반환
-- [...Array]
+- `[...Array]`
 
 ## 원본 배열 변경 O
 - `Array.prototype.fill` - (value, ?start, ?end) value 채운 배열로 반환
