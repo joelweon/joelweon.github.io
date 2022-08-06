@@ -4,6 +4,7 @@ title: JavaScript 원본 배열 변경 여부 함수
 tags:
 - javascript
 - array
+---
 
 ## 원본 배열 변경 X
 - `Array.isArray` - boolean 반환
