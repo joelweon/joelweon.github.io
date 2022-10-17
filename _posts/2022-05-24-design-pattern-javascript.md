@@ -1,6 +1,6 @@
 ---
 layout:  post
-title: Design pattern(structural 구조적인 패턴) with JavaScript
+title: Design pattern(structural 구조 패턴) with JavaScript
 tags:
 - design_pattern
 - javascript
