@@ -15,6 +15,13 @@ export default defineConfig({
         city: resolve(__dirname, 'city.html'),
         future: resolve(__dirname, 'future.html'),
         heli: resolve(__dirname, 'heli.html'),
+        // 블로그 프로젝트 영역에 인라인 임베드되는 갤러리 (고정 파일명)
+        embed: resolve(__dirname, 'src/embed.js'),
+      },
+      output: {
+        // embed 만 해시 없는 고정 이름으로 → Jekyll 에서 직접 참조
+        entryFileNames: (chunk) =>
+          chunk.name === 'embed' ? 'embed.js' : 'assets/[name]-[hash].js',
       },
     },
   },
