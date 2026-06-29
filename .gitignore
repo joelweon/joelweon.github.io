@@ -1,6 +1,7 @@
 _site
 .sass-cache
 node_modules
+threejs-keyframes/node_modules
 /.gradle/
 /.settings/
 /gradle/
@@ -8,3 +9,4 @@ node_modules
 /.project
 /.DS_Store
 *.DS_Store
+.pnpm-store

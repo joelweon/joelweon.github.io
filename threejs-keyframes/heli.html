@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Three.js - Helicopter Simulator</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; overflow: hidden; }
+      body {
+        background: #1a2030; color: #d6f0ff;
+        font-family: 'Segoe UI', system-ui, sans-serif; cursor: crosshair;
+      }
+      .back {
+        position: absolute; top: 14px; left: 18px; z-index: 11;
+        color: #9fd4ff; text-decoration: none; font-size: 13px;
+        border: 1px solid rgba(120,200,255,0.35);
+        padding: 4px 10px; border-radius: 6px; backdrop-filter: blur(4px);
+      }
+      .back:hover { color: #fff; border-color: #fff; }
+
+      #keys {
+        position: absolute; top: 14px; right: 18px; z-index: 11;
+        font-size: 11px; line-height: 1.7; color: #aacbe6;
+        border: 1px solid rgba(120,200,255,0.25);
+        padding: 8px 12px; border-radius: 8px; backdrop-filter: blur(4px);
+        background: rgba(10,16,30,0.35); pointer-events: none;
+      }
+      #keys b { color: #16e0ff; }
+
+      #status {
+        position: absolute; top: 16px; width: 100%; text-align: center;
+        z-index: 10; font-size: 14px; letter-spacing: 1px; color: #eaf6ff;
+        pointer-events: none; text-shadow: 0 0 10px rgba(0,0,0,0.9);
+      }
+      #popup {
+        position: absolute; top: 38%; width: 100%; text-align: center;
+        z-index: 12; font-size: 40px; font-weight: 800; color: #39ff9e;
+        opacity: 0; pointer-events: none;
+        text-shadow: 0 0 20px rgba(57,255,158,0.6);
+      }
+      .gauge.score .val { color: #ffd86b; text-shadow: 0 0 12px rgba(255,216,107,0.5); }
+
+      /* 계기판 */
+      #hud {
+        position: absolute; left: 0; bottom: 0; width: 100%;
+        display: flex; gap: 18px; justify-content: center; align-items: flex-end;
+        padding: 18px 22px 22px; z-index: 10; pointer-events: none;
+      }
+      .gauge {
+        min-width: 104px; text-align: center;
+        background: rgba(8,14,26,0.55); border: 1px solid rgba(120,200,255,0.25);
+        border-radius: 10px; padding: 8px 12px; backdrop-filter: blur(5px);
+      }
+      .gauge .label { font-size: 10px; letter-spacing: 2px; color: #7fbfe6; }
+      .gauge .val {
+        font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums;
+        color: #eaf6ff; text-shadow: 0 0 12px rgba(120,200,255,0.4);
+      }
+      .gauge .val span { font-size: 12px; color: #8fb6d6; font-weight: 400; }
+
+      /* 컬렉티브(스로틀) 바 */
+      #coll {
+        position: absolute; left: 22px; bottom: 120px; width: 12px; height: 180px;
+        background: rgba(8,14,26,0.55); border: 1px solid rgba(120,200,255,0.25);
+        border-radius: 8px; z-index: 10; overflow: hidden;
+      }
+      #collFill {
+        position: absolute; bottom: 0; width: 100%; height: 50%;
+        background: linear-gradient(to top, #16e0ff, #5d6bff);
+      }
+      #collLabel {
+        position: absolute; left: 18px; bottom: 96px; z-index: 10;
+        font-size: 10px; letter-spacing: 2px; color: #7fbfe6; transform: rotate(-90deg);
+        transform-origin: left bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="back" href="./">← 목록</a>
+
+    <div id="status">승객을 태우러 가세요</div>
+    <div id="popup"></div>
+
+    <div id="keys">
+      <div><b>W / S</b> &nbsp;컬렉티브(상승/하강)</div>
+      <div><b>A / D</b> &nbsp;요(좌/우 회전)</div>
+      <div><b>↑ / ↓</b> &nbsp;전진/후진 기울임</div>
+      <div><b>← / →</b> &nbsp;좌/우 이동(뱅크)</div>
+      <div><b>C</b> &nbsp;카메라 전환 · <b>R</b> 리셋</div>
+    </div>
+
+    <div id="coll"><div id="collFill"></div></div>
+    <div id="collLabel">COLLECTIVE</div>
+
+    <div id="hud">
+      <div class="gauge score"><div class="label">SCORE</div><div class="val" id="score">0</div></div>
+      <div class="gauge"><div class="label">ALT</div><div class="val" id="alt">0<span> m</span></div></div>
+      <div class="gauge"><div class="label">SPD</div><div class="val" id="spd">0<span> km/h</span></div></div>
+      <div class="gauge"><div class="label">HDG</div><div class="val" id="hdg">000<span>°</span></div></div>
+      <div class="gauge"><div class="label">V/S</div><div class="val" id="vs">0<span> m/s</span></div></div>
+    </div>
+
+    <script type="module" src="/src/heli.js"></script>
+  </body>
+</html>

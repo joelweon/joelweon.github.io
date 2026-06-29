@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Three.js - Procedural Galaxy</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; overflow: hidden; }
+      body { background: #05060d; font-family: system-ui, sans-serif; }
+      #info {
+        position: absolute;
+        top: 14px;
+        width: 100%;
+        text-align: center;
+        color: #aab4d4;
+        font-size: 13px;
+        letter-spacing: 0.3px;
+        pointer-events: none;
+        z-index: 10;
+        text-shadow: 0 0 8px rgba(0,0,0,0.8);
+      }
+      #info b { color: #ffd9a0; font-weight: 600; }
+      .back {
+        position: absolute;
+        top: 14px;
+        left: 18px;
+        z-index: 11;
+        color: #aab4d4;
+        text-decoration: none;
+        font-size: 13px;
+        border: 1px solid rgba(170,180,212,0.4);
+        padding: 4px 10px;
+        border-radius: 6px;
+        backdrop-filter: blur(4px);
+      }
+      .back:hover { color: #fff; border-color: #fff; }
+    </style>
+    <script type="module" crossorigin src="/threejs/assets/galaxy-C0V87zfJ.js"></script>
+    <link rel="modulepreload" crossorigin href="/threejs/assets/three.module-DKDuK5cp.js">
+    <link rel="modulepreload" crossorigin href="/threejs/assets/OrbitControls-BAQV69Hl.js">
+    <link rel="modulepreload" crossorigin href="/threejs/assets/UnrealBloomPass-9WV0X5ZT.js">
+  </head>
+  <body>
+    <a class="back" href="./">← 목록</a>
+    <div id="info">
+      <b>Procedural Galaxy</b> · 드래그로 회전, 휠로 확대 · 자동 회전 중
+    </div>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Three.js 데모 갤러리</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        font-family: 'Helvetica Neue', system-ui, sans-serif;
+        color: #fff; overflow: hidden;
+        background:
+          radial-gradient(circle at 50% 30%, #14224a 0%, #060912 65%, #03040a 100%);
+      }
+      a { color: #8cf; }
+
+      #info {
+        position: absolute; top: 0; width: 100%; padding: 18px 0 0;
+        text-align: center; z-index: 10; pointer-events: none;
+      }
+      #info .title { font-size: 20px; font-weight: 700; letter-spacing: 2px; }
+      #info .sub { font-size: 12px; color: #8aa6c8; margin-top: 4px; letter-spacing: 1px; }
+
+      #container { position: absolute; inset: 0; }
+
+      /* 카드 */
+      .element {
+        width: 160px; height: 220px;
+        border: 1px solid rgba(120,200,255,0.3);
+        border-radius: 8px; text-align: center; cursor: pointer;
+        transition: box-shadow 0.18s, transform 0.18s;
+        backdrop-filter: blur(1px);
+      }
+      .element:hover { transform: scale(1.05); }
+      .element .number {
+        position: absolute; top: 16px; right: 18px;
+        font-size: 13px; color: rgba(220,240,255,0.6);
+      }
+      .element .symbol {
+        position: absolute; top: 52px; left: 0; right: 0;
+        font-size: 58px; font-weight: 700; color: rgba(255,255,255,0.95);
+      }
+      .element .details {
+        position: absolute; bottom: 20px; left: 0; right: 0;
+        font-size: 12px; line-height: 1.6; color: rgba(210,232,255,0.85);
+        letter-spacing: 0.5px;
+      }
+      .element .details b { font-size: 15px; color: #fff; }
+      .element .details .enter { font-size: 11px; color: rgba(160,210,255,0.9); letter-spacing: 2px; }
+
+      /* 메뉴 버튼 */
+      #menu {
+        position: absolute; bottom: 22px; width: 100%; text-align: center; z-index: 10;
+      }
+      #menu button {
+        color: #cfe6ff; background: rgba(10,20,40,0.5);
+        border: 1px solid rgba(120,200,255,0.4); border-radius: 6px;
+        padding: 8px 16px; margin: 0 4px; font-size: 12px; letter-spacing: 2px;
+        cursor: pointer; backdrop-filter: blur(4px); transition: all 0.15s;
+      }
+      #menu button:hover { color: #fff; border-color: #fff; background: rgba(40,80,140,0.5); }
+    </style>
+    <script type="module" crossorigin src="/threejs/assets/index-CvJKRJNm.js"></script>
+    <link rel="modulepreload" crossorigin href="/threejs/assets/three.module-DKDuK5cp.js">
+  </head>
+  <body>
+    <div id="info">
+      <div class="title">THREE.JS 데모 갤러리</div>
+      <div class="sub">카드를 클릭하면 데모로 이동 · 드래그로 회전 · 휠로 확대</div>
+    </div>
+
+    <div id="container"></div>
+
+    <div id="menu">
+      <button id="btn-table">TABLE</button>
+      <button id="btn-sphere">SPHERE</button>
+      <button id="btn-helix">HELIX</button>
+      <button id="btn-grid">GRID</button>
+    </div>
+
+  </body>
+</html>

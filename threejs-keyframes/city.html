@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Three.js - Procedural City</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; overflow: hidden; }
+      body { background: #1a1230; font-family: system-ui, sans-serif; }
+      #info {
+        position: absolute;
+        top: 14px;
+        width: 100%;
+        text-align: center;
+        color: #e8d6ff;
+        font-size: 13px;
+        letter-spacing: 0.3px;
+        pointer-events: none;
+        z-index: 10;
+        text-shadow: 0 0 8px rgba(0,0,0,0.8);
+      }
+      #info b { color: #ffd27a; font-weight: 600; }
+      .back {
+        position: absolute;
+        top: 14px;
+        left: 18px;
+        z-index: 11;
+        color: #e8d6ff;
+        text-decoration: none;
+        font-size: 13px;
+        border: 1px solid rgba(232,214,255,0.4);
+        padding: 4px 10px;
+        border-radius: 6px;
+        backdrop-filter: blur(4px);
+      }
+      .back:hover { color: #fff; border-color: #fff; }
+    </style>
+  </head>
+  <body>
+    <a class="back" href="./">← 목록</a>
+    <div id="info">
+      <b>Procedural City</b> · 황혼 야경 · 드래그로 회전, 휠로 확대 · 자동 비행 중
+    </div>
+    <script type="module" src="/src/city.js"></script>
+  </body>
+</html>
