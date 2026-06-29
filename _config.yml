@@ -17,4 +17,4 @@ gplus_username:  joelweon
 google-analytics:
   id: ""
 
-exclude: ['package.json', 'pnpm-lock.yaml', 'src' , 'node_modules', 'threejs-keyframes']
+exclude: ['package.json', 'pnpm-lock.yaml', 'src' , 'node_modules', 'threejs-keyframes', 'CLAUDE.md']
