@@ -136,8 +136,6 @@ function initGallery(root) {
     menu.appendChild(btn);
   });
 
-  transform(targets.table, 2000);
-
   // 드래그/클릭 구분 → 클릭이면 데모를 새 탭으로 오픈
   let downPos = null;
   let dragDist = 0;
@@ -165,7 +163,24 @@ function initGallery(root) {
   });
   ro.observe(root);
 
-  animate();
+  // 갤러리가 뷰포트에 들어올 때 진입 애니메이션 시작 + 렌더 루프 가동.
+  // 화면 밖이면 루프를 멈춰 자원을 아낀다.
+  let rafId = null;
+  let entered = false;
+  function startLoop() { if (rafId === null) animate(); }
+  function stopLoop() { if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; } }
+
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        startLoop();
+        if (!entered) { entered = true; transform(targets.table, 2000); }
+      } else {
+        stopLoop();
+      }
+    }
+  }, { threshold: 0.15 });
+  io.observe(root);
 
   function transform(t, duration) {
     TWEEN.removeAll();
@@ -183,7 +198,7 @@ function initGallery(root) {
   }
 
   function animate() {
-    requestAnimationFrame(animate);
+    rafId = requestAnimationFrame(animate);
     TWEEN.update();
     controls.update();
   }

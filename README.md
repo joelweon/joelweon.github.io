@@ -56,6 +56,26 @@ In order to compile the assets and run Jekyll on local you need to follow those 
 - Run `npm install`
 - Run `gulp`
 
+## Three.js Demo Gallery (`threejs-keyframes/` → `threejs/`)
+
+`threejs-keyframes/` 는 **Vite 프로젝트(소스)** 이고, 빌드 결과는 리포 루트 `threejs/` 로 출력됩니다.
+GitHub Pages 는 Vite 를 실행하지 않으므로, **빌드 산출물(`threejs/`)을 직접 커밋해야** 사이트에 반영됩니다.
+(소스만 고치고 push 하면 라이브에 반영되지 않습니다.)
+
+```bash
+cd threejs-keyframes
+pnpm install        # 최초 1회
+pnpm build          # → 리포 루트 threejs/ 갱신
+cd ..
+git add threejs threejs-keyframes
+git commit -m "..."
+git push            # threejs/ 산출물까지 함께 push
+```
+
+- 패키지 매니저는 **pnpm** (npm/yarn 아님).
+- 로컬 미리보기: `pnpm dev` (http://localhost:5173) / `pnpm preview` (http://localhost:4173/threejs/).
+- 홈 화면 Project 영역의 인라인 갤러리는 `src/embed.js` → 고정 파일명 `threejs/embed.js` 로 빌드됩니다.
+
 ## Haroopad
 http://pad.haroopress.com/
 - 마크다운 편집 툴
